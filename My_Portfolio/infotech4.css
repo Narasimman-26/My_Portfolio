@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #0f172a;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  color: white;
+}
+
+nav a {
+  color: #cbd5f5;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: white;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111827, #020617);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.hero span {
+  color: #facc15;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.hero .name {
+  font-size: 52px;
+  font-weight: 800;
+  color: #f9fafb; /* clean white */
+}
+
+
+/* Sections */
+.section {
+  padding: 60px 0;
+}
+
+.light {
+  background: #f1f5f9;
+}
+
+.dark {
+  background: #0f172a;
+  color: white;
+}
+
+.skills span {
+  display: inline-block;
+  background: white;
+  margin: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #e5e7eb;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: #020617;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
