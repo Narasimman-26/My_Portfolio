@@ -1362,11 +1362,17 @@
           </div>
         </div>
         <div class="flex items-center gap-2">
+          <a href="/resume-template.html" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1.5 text-cyan-400 hover:text-white border-cyan-400/40" title="Open full executive resume view in a new tab">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span class="hidden sm:inline">Open Template View</span>
+          </a>
           <button id="btn-print-resume" class="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
             </svg>
-            <span>Print / Save PDF</span>
+            <span>Print / PDF</span>
           </button>
           <button id="resume-close-btn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10" aria-label="Close Resume Modal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1376,165 +1382,318 @@
         </div>
       </div>
 
-      <!-- Printable Resume Body (Clean Executive Human-Crafted Template) -->
-      <div id="printable-resume" class="py-6 space-y-6 text-gray-200 font-sans leading-relaxed">
+      <!-- Printable Resume Body (Clean Executive Human-Crafted 2-Column Template) -->
+      <div id="printable-resume" class="pt-6 pb-2 text-gray-200 font-sans leading-relaxed">
         
         <!-- Executive Header -->
-        <div class="border-b border-gray-700/80 pb-5 text-center">
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-wide uppercase font-outfit">NARASIMMAN P</h1>
-          <p class="text-cyan-400 font-mono text-sm tracking-widest uppercase mt-1 font-semibold">Software Developer</p>
-          <div class="font-mono text-xs text-gray-300 flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mt-3">
-            <span>+91 8526824759</span>
-            <span class="text-gray-500">&bull;</span>
-            <a href="mailto:pnarasimman26@gmail.com" class="text-cyan-300 hover:underline">pnarasimman26@gmail.com</a>
-            <span class="text-gray-500">&bull;</span>
-            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline">linkedin.com/narasimman</a>
-            <span class="text-gray-500">&bull;</span>
-            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline">github.com/Narasimman</a>
-            <span class="text-gray-500">&bull;</span>
-            <span>Tirunelveli, Tamil Nadu</span>
+        <div class="border-b border-gray-700/80 pb-5 mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+          <div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-outfit">NARASIMMAN P</h1>
+            <div class="flex items-center gap-3 mt-1.5">
+              <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase font-bold">Software Developer</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                B.E. Computer Science
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-1.5 text-xs font-mono text-gray-300 md:text-right">
+            <a href="tel:+918526824759" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+              <span>+91 8526824759</span>
+            </a>
+            <a href="mailto:pnarasimman26@gmail.com" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span>pnarasimman26@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z"/></svg>
+              <span>linkedin.com/in/narasimman</span>
+            </a>
+            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>github.com/Narasimman</span>
+            </a>
+            <span class="flex items-center md:justify-end gap-1.5 text-gray-400">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+              <span>Tirunelveli, Tamil Nadu</span>
+            </span>
           </div>
         </div>
 
-        <!-- About Me / Professional Summary -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-2">ABOUT ME</h2>
-          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed text-justify">
-            Final-year B.E. Computer Science and Engineering student seeking a Software Developer role skills in Python, Java, SQL, and Web technologies. Interested in software development, backend technologies. Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.
-          </p>
-        </div>
-
-        <!-- Education -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-2.5">EDUCATION</h2>
-          <div class="flex justify-between items-start text-xs sm:text-sm">
+        <!-- 2-Column Responsive Executive Layout Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT SIDEBAR (Col 1-4 on desktop) -->
+          <aside class="md:col-span-4 space-y-5">
+            
+            <!-- About Me -->
             <div>
-              <div class="font-bold text-white text-sm sm:text-base">SCAD College of Engineering and Technology</div>
-              <div class="text-gray-300 text-xs mt-0.5">B.E in Computer Science and Engineering &mdash; <strong class="text-cyan-400 font-semibold">7.3 CGPA</strong></div>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                About Me
+              </h2>
+              <p class="text-[11.5px] leading-relaxed text-gray-300 text-justify">
+                Final-year B.E. Computer Science and Engineering student seeking a Software Developer role skills in Python, Java, SQL, and Web technologies. Interested in software development, backend technologies. Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.
+              </p>
             </div>
-            <div class="text-right text-xs font-mono text-gray-400">
-              <div class="text-cyan-300 font-medium">Sep. 2023 – May 2027</div>
-              <div>Tirunelveli, Tamilnadu</div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Experience -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-3">EXPERIENCE</h2>
-          <div class="space-y-4 text-xs sm:text-sm">
-            <!-- Cognifyz Technologies -->
+            <!-- Education -->
             <div>
-              <div class="flex flex-wrap justify-between items-start">
-                <div>
-                  <span class="font-bold text-white text-sm">Cognifyz Technologies</span>
-                  <span class="text-cyan-300 font-medium text-xs sm:text-sm"> &mdash; Software Development Internship</span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Education
+              </h2>
+              <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 space-y-1">
+                <div class="font-bold text-white text-xs leading-snug">SCAD College of Engineering &amp; Technology</div>
+                <div class="text-[11px] text-cyan-300">B.E. in Computer Science &amp; Engineering</div>
+                <div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400 pt-1">
+                  <span>Sep. 2023 – May 2027</span>
+                  <span class="font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-1.5 py-0.2 rounded">7.3 CGPA</span>
                 </div>
-                <span class="text-xs font-mono text-gray-400">January 2026 – February 2026 &bull; Remote Nagpur, Maharashtra</span>
+                <div class="text-[10px] text-gray-500">Tirunelveli, Tamil Nadu</div>
               </div>
-              <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1 mt-1.5 leading-relaxed">
-                <li>Engineered software solutions in Python and Java, delivering all assigned tasks on schedule.</li>
-                <li>Collaborated with mentors to debug issues and optimize code, applying version control and coding best practices.</li>
-                <li>Automated daily test-result reporting and visualization using Python, improving team visibility.</li>
-              </ul>
             </div>
 
-            <!-- InternzLearn -->
+            <!-- Technical Skills -->
             <div>
-              <div class="flex flex-wrap justify-between items-start">
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Technical Skills
+              </h2>
+              
+              <div class="space-y-2.5 text-xs">
                 <div>
-                  <span class="font-bold text-white text-sm">InternzLearn</span>
-                  <span class="text-cyan-300 font-medium text-xs sm:text-sm"> &mdash; Cyber Security Internship</span>
+                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Languages</span>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="resume-pill highlight">Python</span>
+                    <span class="resume-pill highlight">Java</span>
+                    <span class="resume-pill">SQL</span>
+                    <span class="resume-pill">HTML</span>
+                    <span class="resume-pill">CSS</span>
+                  </div>
                 </div>
-                <span class="text-xs font-mono text-gray-400">March 2025 – April 2025 &bull; Remote Bengaluru, Karnataka</span>
-              </div>
-              <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1 mt-1.5 leading-relaxed">
-                <li>Analyzed network security fundamentals and common cyber threats, strengthening understanding of attack vectors and defense mechanisms.</li>
-                <li>Conducted vulnerability assessments and applied system protection best practices.</li>
-                <li>Evaluated web application exposure to cyber risks and applied secure coding principles.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
 
-        <!-- Projects -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-3">PROJECTS</h2>
-          <div class="space-y-4 text-xs sm:text-sm">
-            <!-- SafeHer -->
+                <div>
+                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">AI &amp; Automation</span>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="resume-pill highlight">Claude API</span>
+                    <span class="resume-pill highlight">MCP Protocol</span>
+                    <span class="resume-pill">Playwright</span>
+                    <span class="resume-pill">Selenium</span>
+                    <span class="resume-pill">n8n</span>
+                    <span class="resume-pill">Prompt Eng.</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Technologies &amp; Frameworks</span>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="resume-pill">React Native</span>
+                    <span class="resume-pill">Expo</span>
+                    <span class="resume-pill">Firebase</span>
+                    <span class="resume-pill">Linux</span>
+                    <span class="resume-pill">Git</span>
+                    <span class="resume-pill">PostgreSQL</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Developer Tools</span>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="resume-pill">VS Code</span>
+                    <span class="resume-pill">Eclipse</span>
+                    <span class="resume-pill">Android Studio</span>
+                    <span class="resume-pill highlight">GitHub Copilot</span>
+                    <span class="resume-pill">MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honors & Awards -->
             <div>
-              <div class="flex flex-wrap justify-between items-start font-bold text-white">
-                <span class="text-sm">SafeHer &mdash; Women Safety Application (Hackathon)</span>
-                <span class="text-xs font-mono text-gray-400">March 2026</span>
-              </div>
-              <div class="text-[11px] font-mono text-cyan-400/90 mb-1">React Native, Expo, Supabase, GPS integration, MySQL, MCP</div>
-              <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1 leading-relaxed">
-                <li>Architected a mobile safety app delivering real-time location sharing and instant SOS alerts.</li>
-                <li>Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing response time by 3 Seconds.</li>
-                <li>Secured user authentication and database management with Supabase and MySQL.</li>
-                <li>Integrated MCP (Model Context Protocol) to enable contextual smart replies and dynamic tool integrations for safety users.</li>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Honors &amp; Awards
+              </h2>
+              <ul class="text-[11px] text-gray-300 space-y-1">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                  <strong class="text-white font-semibold">Outstanding Technical Achiever</strong> &mdash; SCAD College of Engineering and Technology (Spring 2025)
+                </li>
               </ul>
             </div>
 
-            <!-- ERP Attendance Management System -->
+            <!-- Certifications -->
             <div>
-              <div class="flex flex-wrap justify-between items-start font-bold text-white">
-                <span class="text-sm">ERP Attendance Management System (College Academic Project)</span>
-                <span class="text-xs font-mono text-gray-400">April 2026</span>
-              </div>
-              <div class="text-[11px] font-mono text-cyan-400/90 mb-1">React.js, Firebase, PostgreSQL, MCP</div>
-              <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1 leading-relaxed">
-                <li>Developed an ERP-based attendance management system to automate student attendance tracking and reduce manual record-keeping.</li>
-                <li>Implemented role-based access control for Admin, Faculty, and Students.</li>
-                <li>Built automated percentage calculation and report generation, serving 180+ users.</li>
-                <li>Leveraged MCP to securely connect and fetch real-time student records across databases and external automated tools.</li>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Certifications
+              </h2>
+              <ul class="text-[11px] text-gray-300 space-y-1.5">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                  <strong class="text-white">Python Essentials 1</strong> &mdash; Cisco Networking Academy
+                </li>
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                  <strong class="text-white">Web Development</strong> &mdash; Prodigy Infotech
+                </li>
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                  <strong class="text-white">Python Basics</strong> &mdash; HackerRank Certified
+                </li>
               </ul>
             </div>
 
-            <!-- SecureChat -->
+          </aside>
+
+          <!-- RIGHT MAIN COLUMN (Col 5-12 on desktop) -->
+          <div class="md:col-span-8 space-y-6">
+            
+            <!-- Experience -->
             <div>
-              <div class="flex flex-wrap justify-between items-start font-bold text-white">
-                <span class="text-sm">SecureChat &mdash; Secure Communication Application</span>
-                <span class="text-xs font-mono text-gray-400">November 2025</span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Experience
+              </h2>
+
+              <div class="space-y-4">
+                <!-- Cognifyz Technologies -->
+                <div class="space-y-1">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2">
+                    <div>
+                      <span class="font-bold text-white text-xs sm:text-sm">Cognifyz Technologies</span>
+                      <span class="text-cyan-300 text-xs font-medium"> &mdash; Software Development Internship</span>
+                    </div>
+                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">Jan 2026 – Feb 2026</span>
+                  </div>
+                  <div class="text-[10.5px] text-gray-400">Remote &bull; Nagpur, Maharashtra</div>
+                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Engineered software solutions in <strong class="text-white">Python and Java</strong>, delivering all assigned tasks on schedule.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Collaborated with mentors to debug issues and optimize code, applying version control and coding best practices.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Automated daily test-result reporting and visualization using Python, improving team visibility.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- InternzLearn -->
+                <div class="space-y-1">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2">
+                    <div>
+                      <span class="font-bold text-white text-xs sm:text-sm">InternzLearn</span>
+                      <span class="text-cyan-300 text-xs font-medium"> &mdash; Cyber Security Internship</span>
+                    </div>
+                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">March 2025 – April 2025</span>
+                  </div>
+                  <div class="text-[10.5px] text-gray-400">Remote &bull; Bengaluru, Karnataka</div>
+                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Analyzed network security fundamentals and common cyber threats, strengthening understanding of attack vectors and defense mechanisms.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Conducted vulnerability assessments and applied system protection best practices.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Evaluated web application exposure to cyber risks and applied secure coding principles.
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="text-[11px] font-mono text-cyan-400/90 mb-1">IndexedDB, AES-256, React, Tailwind CSS, MCP</div>
-              <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1 leading-relaxed">
-                <li>Built an end-to-end encrypted real-time messaging platform using AES-256.</li>
-                <li>Implemented secure authentication and encrypted message storage using IndexedDB.</li>
-                <li>Engineered reliable message handling to protect data privacy across conversations.</li>
-                <li>Utilized MCP architecture to seamlessly handle secure communication protocols and manage tool context between users.</li>
-              </ul>
             </div>
+
+            <!-- Featured Projects -->
+            <div>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-gray-700/60">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+                Featured Projects
+              </h2>
+
+              <div class="space-y-4">
+                <!-- SafeHer -->
+                <div class="space-y-1">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2">
+                    <div>
+                      <span class="font-bold text-white text-xs sm:text-sm">SafeHer &mdash; Women Safety Application</span>
+                      <span class="text-[10.5px] text-gray-400 font-mono">(Hackathon)</span>
+                    </div>
+                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">March 2026</span>
+                  </div>
+                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">React Native &bull; Expo &bull; Supabase &bull; GPS &bull; MySQL &bull; MCP</div>
+                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Architected a mobile safety app delivering real-time location sharing and instant SOS alerts.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing response time by <span class="resume-metric-tag">3 Seconds</span>.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Secured user authentication and database management with Supabase and MySQL.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Integrated <strong class="text-white">MCP (Model Context Protocol)</strong> to enable contextual smart replies and dynamic tool integrations for safety users.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- ERP Attendance Management System -->
+                <div class="space-y-1">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2">
+                    <div>
+                      <span class="font-bold text-white text-xs sm:text-sm">ERP Attendance Management System</span>
+                      <span class="text-[10.5px] text-gray-400 font-mono">(College Academic)</span>
+                    </div>
+                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">April 2026</span>
+                  </div>
+                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">React.js &bull; Firebase &bull; PostgreSQL &bull; MCP Architecture</div>
+                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Developed an ERP-based attendance management system to automate student attendance tracking and reduce manual record-keeping.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Implemented role-based access control (RBAC) for Admin, Faculty, and Students.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Built automated percentage calculation and report generation, serving <span class="resume-metric-tag">180+ users</span>.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Leveraged <strong class="text-white">MCP</strong> to securely connect and fetch real-time student records across databases and external automated tools.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- SecureChat -->
+                <div class="space-y-1">
+                  <div class="flex flex-wrap justify-between items-baseline gap-2">
+                    <div>
+                      <span class="font-bold text-white text-xs sm:text-sm">SecureChat &mdash; Secure Communication Application</span>
+                    </div>
+                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">November 2025</span>
+                  </div>
+                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">IndexedDB &bull; AES-256 &bull; React &bull; Tailwind CSS &bull; MCP</div>
+                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Built an end-to-end encrypted real-time messaging platform using <strong class="text-white">AES-256</strong>.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Implemented secure authentication and encrypted message storage using <strong class="text-white">IndexedDB</strong>.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Engineered reliable message handling to protect data privacy across conversations.
+                    </li>
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                      Utilized <strong class="text-white">MCP architecture</strong> to seamlessly handle secure communication protocols and manage tool context between users.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        <!-- Technical Skills -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-2">TECHNICAL SKILLS</h2>
-          <div class="text-xs space-y-1.5 text-gray-300 leading-relaxed">
-            <div><strong class="text-white font-semibold">Languages:</strong> Python, Java, HTML, CSS, SQL</div>
-            <div><strong class="text-white font-semibold">Developer Tools:</strong> VS Code, Eclipse, Android Studio, Github Copilot, MySQL</div>
-            <div><strong class="text-white font-semibold">Technologies/Frameworks:</strong> React Native, Expo, Firebase, Linux, Git, PostgreSQL</div>
-            <div><strong class="text-white font-semibold">AI/Automation:</strong> Claude API, MCP, Playwright, Selenium, n8n, Prompt Engineering</div>
-          </div>
-        </div>
-
-        <!-- Awards & Achievements -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-2">AWARDS AND ACHIEVEMENTS</h2>
-          <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1">
-            <li><strong class="text-white font-semibold">Outstanding Technical Achiever</strong> in SCAD College of Engineering and Technology (Spring 2025)</li>
-          </ul>
-        </div>
-
-        <!-- Certifications -->
-        <div>
-          <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase border-b border-gray-700/60 pb-1 mb-2">CERTIFICATIONS</h2>
-          <ul class="list-disc list-outside ml-4 text-xs text-gray-300 space-y-1">
-            <li><strong class="text-white">Python Essentials 1</strong> &mdash; Cisco Networking Academy</li>
-            <li><strong class="text-white">Web Development</strong> &mdash; Prodigy Infotech</li>
-            <li><strong class="text-white">Python Basics</strong> &mdash; HackerRank</li>
-          </ul>
         </div>
 
       </div>

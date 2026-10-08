@@ -3,358 +3,670 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Narasimman P - Software Developer Resume</title>
+  <title>Narasimman P — Software Developer Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --emerald-600: #059669;
+      --emerald-50: #ecfdf5;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
-      background-color: #f1f5f9;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: #1e293b;
-      line-height: 1.4;
-      padding: 30px 20px;
+      background-color: #cbd5e1;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--slate-800);
+      line-height: 1.45;
+      padding: 30px 16px;
       display: flex;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
     }
-    .page {
+
+    /* Standard A4 / Executive Proportion Page Container */
+    .sheet {
       background: #ffffff;
-      width: 820px;
-      min-height: 1040px;
-      padding: 36px 44px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
+      width: 860px;
+      min-height: 1140px;
+      padding: 36px 40px;
+      border-radius: 6px;
+      box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
-    
+
+    /* Top Accent Stripe */
+    .top-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #6366f1 100%);
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
     /* Header */
     .header {
-      text-align: center;
-      border-bottom: 2px solid #0f172a;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
-    }
-    .name {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #0f172a;
-      text-transform: uppercase;
-    }
-    .role {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #0284c7;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-    .contact-bar {
-      margin-top: 6px;
-      font-size: 11px;
-      color: #475569;
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px 12px;
-    }
-    .contact-bar a {
-      color: #0284c7;
-      text-decoration: none;
-    }
-    .contact-bar a:hover {
-      text-decoration: underline;
-    }
-    .separator {
-      color: #cbd5e1;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.5px solid var(--slate-200);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    /* Section */
-    .section {
-      margin-bottom: 11px;
+    .brand-title {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--slate-900);
+      line-height: 1.1;
     }
-    .section-title {
-      font-size: 11.5px;
+
+    .brand-subtitle {
+      font-size: 13px;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--primary);
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 3px;
-      margin-bottom: 7px;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* Content text */
-    p.summary {
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--emerald-600);
+      background: var(--emerald-50);
+      border: 1px solid #a7f3d0;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    /* Contact Links Column */
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
       font-size: 11px;
-      color: #334155;
-      line-height: 1.5;
+      font-weight: 500;
+      color: var(--slate-600);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--slate-700);
+      transition: color 0.15s;
+    }
+
+    .contact-item:hover {
+      color: var(--primary);
+    }
+
+    .contact-item svg {
+      width: 12px;
+      height: 12px;
+      color: var(--primary);
+    }
+
+    /* 2-Column Main Layout */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 26px;
+    }
+
+    /* Sidebar Column */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-right: 1.5px solid var(--slate-100);
+      padding-right: 22px;
+    }
+
+    /* Main Content Column */
+    .main-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--slate-900);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--slate-200);
+    }
+
+    .section-title .bar {
+      width: 3px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* Profile Summary */
+    .summary-text {
+      font-size: 11px;
+      color: var(--slate-700);
+      line-height: 1.55;
       text-align: justify;
     }
 
-    /* Entries */
-    .entry {
+    /* Education Card */
+    .edu-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .edu-inst {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate-900);
+      line-height: 1.25;
+    }
+
+    .edu-degree {
+      font-size: 11px;
+      color: var(--slate-600);
+      margin-top: 3px;
+    }
+
+    .edu-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cgpa-chip {
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* Skills Pill Groups */
+    .skill-group {
       margin-bottom: 8px;
     }
-    .entry:last-child {
+
+    .skill-group:last-child {
       margin-bottom: 0;
     }
-    .entry-header {
+
+    .skill-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--slate-700);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .pill {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--slate-700);
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      padding: 2px 7px;
+      border-radius: 4px;
+      line-height: 1.3;
+    }
+
+    .pill.highlight {
+      background: #e0f2fe;
+      border-color: #bae6fd;
+      color: #0369a1;
+      font-weight: 700;
+    }
+
+    /* Sidebar Bullet lists (Awards & Certs) */
+    .side-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .side-list li {
+      font-size: 10.5px;
+      color: var(--slate-700);
+      line-height: 1.35;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .side-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--primary);
+      font-size: 11px;
+    }
+
+    .side-list strong {
+      color: var(--slate-900);
+      font-weight: 700;
+    }
+
+    /* Work History & Project Cards */
+    .item-entry {
+      margin-bottom: 11px;
+    }
+
+    .item-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      font-size: 12px;
+      gap: 8px;
     }
-    .entry-title {
+
+    .item-title {
+      font-size: 12.5px;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--slate-900);
     }
-    .entry-role {
-      font-weight: 500;
-      color: #0369a1;
-      font-style: italic;
+
+    .item-role {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-left: 4px;
     }
-    .entry-meta {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .entry-tech {
+
+    .item-date-badge {
       font-size: 10.5px;
-      color: #0284c7;
+      font-weight: 600;
+      color: var(--slate-600);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      background: var(--slate-100);
+      padding: 1.5px 6px;
+      border-radius: 4px;
+    }
+
+    .item-location {
+      font-size: 10.5px;
+      color: var(--slate-500);
       font-weight: 500;
       margin-top: 1px;
+      display: block;
+    }
+
+    .item-stack {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary-dark);
+      font-weight: 600;
+      margin-top: 2px;
       margin-bottom: 3px;
     }
 
-    /* Bullets */
-    ul.bullets {
-      list-style-type: square;
-      padding-left: 16px;
-      margin-top: 3px;
+    .bullet-list {
+      list-style: none;
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
     }
-    ul.bullets li {
+
+    .bullet-list li {
       font-size: 11px;
-      color: #334155;
+      color: var(--slate-700);
       line-height: 1.45;
-      margin-bottom: 2px;
-    }
-    ul.bullets li strong {
-      color: #0f172a;
+      position: relative;
+      padding-left: 13px;
+      text-align: justify;
     }
 
-    /* Skills Grid */
-    .skills-row {
-      font-size: 11px;
-      color: #334155;
-      line-height: 1.5;
-      margin-bottom: 3px;
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 1;
     }
-    .skills-category {
+
+    .bullet-list li strong {
+      color: var(--slate-900);
       font-weight: 700;
-      color: #0f172a;
-      display: inline-block;
-      min-width: 175px;
+    }
+
+    .metric-tag {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
+      font-weight: 700;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
     }
 
     @media print {
       body {
-        background: none;
-        padding: 0;
+        background: transparent !important;
+        padding: 0 !important;
       }
-      .page {
-        box-shadow: none;
-        padding: 30px 40px;
-        width: 100%;
+      .sheet {
+        box-shadow: none !important;
+        width: 100% !important;
+        padding: 24px 30px !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    
-    <!-- Header -->
+  <main class="sheet">
+    <div class="top-accent"></div>
+
+    <!-- Header Section -->
     <header class="header">
-      <h1 class="name">Narasimman P</h1>
-      <div class="role">Software Developer</div>
-      <div class="contact-bar">
-        <span>+91 8526824759</span>
-        <span class="separator">•</span>
-        <a href="mailto:pnarasimman26@gmail.com">pnarasimman26@gmail.com</a>
-        <span class="separator">•</span>
-        <a href="https://linkedin.com/in/narasimman" target="_blank">linkedin.com/narasimman</a>
-        <span class="separator">•</span>
-        <a href="https://github.com/Narasimman" target="_blank">github.com/Narasimman</a>
-        <span class="separator">•</span>
-        <span>Tirunelveli, Tamil Nadu</span>
+      <div>
+        <h1 class="brand-title">NARASIMMAN P</h1>
+        <div class="brand-subtitle">
+          Software Developer
+          <span class="badge-status"><span class="status-dot"></span> B.E. Computer Science</span>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <a href="tel:+918526824759" class="contact-item">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+          +91 8526824759
+        </a>
+        <a href="mailto:pnarasimman26@gmail.com" class="contact-item">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          pnarasimman26@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z"/></svg>
+          linkedin.com/in/narasimman
+        </a>
+        <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/Narasimman
+        </a>
+        <span class="contact-item">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+          Tirunelveli, Tamil Nadu
+        </span>
       </div>
     </header>
 
-    <!-- Professional Summary -->
-    <section class="section">
-      <div class="section-title">About Me</div>
-      <p class="summary">
-        Final-year B.E. Computer Science and Engineering student seeking a Software Developer role skills in Python, Java, SQL, and Web technologies. Interested in software development, backend technologies. Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.
-      </p>
-    </section>
-
-    <!-- Education -->
-    <section class="section">
-      <div class="section-title">Education</div>
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">SCAD College of Engineering and Technology</span>
-            <span style="color: #64748b;"> — </span>
-            <span style="font-weight: 500;">B.E. in Computer Science and Engineering</span>
-            <span style="color: #0369a1; font-weight: 600;"> (7.3 CGPA)</span>
-          </div>
-          <div class="entry-meta">Sep. 2023 – May 2027 | Tirunelveli, Tamil Nadu</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section class="section">
-      <div class="section-title">Experience</div>
+    <!-- 2-Column Body Layout -->
+    <div class="layout-grid">
       
-      <!-- Cognifyz Technologies -->
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">Cognifyz Technologies</span>
-            <span style="color: #64748b;"> — </span>
-            <span class="entry-role">Software Development Internship</span>
-          </div>
-          <div class="entry-meta">January 2026 – February 2026 | Remote Nagpur, Maharashtra</div>
+      <!-- ==================== LEFT SIDEBAR ==================== -->
+      <aside class="sidebar">
+        
+        <!-- About Me -->
+        <div>
+          <div class="section-title"><span class="bar"></span> About Me</div>
+          <p class="summary-text">
+            Final-year B.E. Computer Science and Engineering student seeking a Software Developer role skills in Python, Java, SQL, and Web technologies. Interested in software development, backend technologies. Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.
+          </p>
         </div>
-        <ul class="bullets">
-          <li>Engineered software solutions in Python and Java, delivering all assigned tasks on schedule.</li>
-          <li>Collaborated with mentors to debug issues and optimize code, applying version control and coding best practices.</li>
-          <li>Automated daily test-result reporting and visualization using Python, improving team visibility.</li>
-        </ul>
-      </div>
 
-      <!-- InternzLearn -->
-      <div class="entry" style="margin-top: 7px;">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">InternzLearn</span>
-            <span style="color: #64748b;"> — </span>
-            <span class="entry-role">Cyber Security Internship</span>
+        <!-- Education -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Education</div>
+          <div class="edu-card">
+            <div class="edu-inst">SCAD College of Engineering &amp; Technology</div>
+            <div class="edu-degree">B.E. in Computer Science &amp; Engineering</div>
+            <div class="edu-meta">
+              <span>Sep. 2023 – May 2027</span>
+              <span class="cgpa-chip">7.3 CGPA</span>
+            </div>
+            <div style="font-size: 10px; color: var(--slate-500); margin-top: 3px;">Tirunelveli, Tamil Nadu</div>
           </div>
-          <div class="entry-meta">March 2025 – April 2025 | Remote Bengaluru, Karnataka</div>
         </div>
-        <ul class="bullets">
-          <li>Analyzed network security fundamentals and common cyber threats, strengthening understanding of attack vectors and defense mechanisms.</li>
-          <li>Conducted vulnerability assessments and applied system protection best practices.</li>
-          <li>Evaluated web application exposure to cyber risks and applied secure coding principles.</li>
-        </ul>
-      </div>
-    </section>
 
-    <!-- Projects -->
-    <section class="section">
-      <div class="section-title">Projects</div>
-      
-      <!-- SafeHer -->
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">SafeHer — Women Safety Application</span>
-            <span style="font-size: 10.5px; color: #475569; font-weight: 500;"> (Hackathon)</span>
+        <!-- Technical Skills -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Technical Skills</div>
+          
+          <div class="skill-group">
+            <span class="skill-label">Languages</span>
+            <div class="pill-cloud">
+              <span class="pill highlight">Python</span>
+              <span class="pill highlight">Java</span>
+              <span class="pill">SQL</span>
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+            </div>
           </div>
-          <div class="entry-meta">March 2026</div>
-        </div>
-        <div class="entry-tech">React Native, Expo, Supabase, GPS integration, MySQL, MCP</div>
-        <ul class="bullets">
-          <li>Architected a mobile safety app delivering real-time location sharing and instant SOS alerts.</li>
-          <li>Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing response time by 3 seconds.</li>
-          <li>Secured user authentication and database management with Supabase and MySQL.</li>
-          <li>Integrated <strong>MCP (Model Context Protocol)</strong> to enable contextual smart replies and dynamic tool integrations for safety users.</li>
-        </ul>
-      </div>
 
-      <!-- ERP Attendance System -->
-      <div class="entry" style="margin-top: 7px;">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">ERP Attendance Management System</span>
-            <span style="font-size: 10.5px; color: #475569; font-weight: 500;"> (College Academic Project)</span>
+          <div class="skill-group">
+            <span class="skill-label">AI &amp; Automation</span>
+            <div class="pill-cloud">
+              <span class="pill highlight">Claude API</span>
+              <span class="pill highlight">MCP Protocol</span>
+              <span class="pill">Playwright</span>
+              <span class="pill">Selenium</span>
+              <span class="pill">n8n</span>
+              <span class="pill">Prompt Eng.</span>
+            </div>
           </div>
-          <div class="entry-meta">April 2026</div>
-        </div>
-        <div class="entry-tech">React.js, Firebase, PostgreSQL, MCP</div>
-        <ul class="bullets">
-          <li>Developed an ERP-based attendance management system to automate student attendance tracking and reduce manual record-keeping.</li>
-          <li>Implemented role-based access control for Admin, Faculty, and Students.</li>
-          <li>Built automated percentage calculation and report generation, serving <strong>180+ users</strong>.</li>
-          <li>Leveraged <strong>MCP</strong> to securely connect and fetch real-time student records across databases and external automated tools.</li>
-        </ul>
-      </div>
 
-      <!-- SecureChat -->
-      <div class="entry" style="margin-top: 7px;">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">SecureChat — Secure Communication Application</span>
+          <div class="skill-group">
+            <span class="skill-label">Technologies &amp; Frameworks</span>
+            <div class="pill-cloud">
+              <span class="pill">React Native</span>
+              <span class="pill">Expo</span>
+              <span class="pill">Firebase</span>
+              <span class="pill">Linux</span>
+              <span class="pill">Git</span>
+              <span class="pill">PostgreSQL</span>
+            </div>
           </div>
-          <div class="entry-meta">November 2025</div>
+
+          <div class="skill-group">
+            <span class="skill-label">Developer Tools</span>
+            <div class="pill-cloud">
+              <span class="pill">VS Code</span>
+              <span class="pill">Eclipse</span>
+              <span class="pill">Android Studio</span>
+              <span class="pill highlight">GitHub Copilot</span>
+              <span class="pill">MySQL</span>
+            </div>
+          </div>
         </div>
-        <div class="entry-tech">IndexedDB, AES-256, React, Tailwind CSS, MCP</div>
-        <ul class="bullets">
-          <li>Built an end-to-end encrypted real-time messaging platform using <strong>AES-256</strong>.</li>
-          <li>Implemented secure authentication and encrypted message storage using <strong>IndexedDB</strong>.</li>
-          <li>Engineered reliable message handling to protect data privacy across conversations.</li>
-          <li>Utilized <strong>MCP architecture</strong> to seamlessly handle secure communication protocols and manage tool context between users.</li>
-        </ul>
-      </div>
-    </section>
 
-    <!-- Technical Skills -->
-    <section class="section">
-      <div class="section-title">Technical Skills</div>
-      <div class="skills-row">
-        <span class="skills-category">Languages:</span>
-        <span>Python, Java, HTML, CSS, SQL</span>
-      </div>
-      <div class="skills-row">
-        <span class="skills-category">Developer Tools:</span>
-        <span>VS Code, Eclipse, Android Studio, Github Copilot, MySQL</span>
-      </div>
-      <div class="skills-row">
-        <span class="skills-category">Technologies/Frameworks:</span>
-        <span>React Native, Expo, Firebase, Linux, Git, PostgreSQL</span>
-      </div>
-      <div class="skills-row">
-        <span class="skills-category">AI / Automation:</span>
-        <span>Claude API, MCP (Model Context Protocol), Playwright, Selenium, n8n, Prompt Engineering</span>
-      </div>
-    </section>
+        <!-- Awards & Honors -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Honors &amp; Awards</div>
+          <ul class="side-list">
+            <li><strong>Outstanding Technical Achiever</strong> — SCAD College of Engineering and Technology (Spring 2025)</li>
+          </ul>
+        </div>
 
-    <!-- Awards and Achievements -->
-    <section class="section">
-      <div class="section-title">Awards and Achievements</div>
-      <ul class="bullets">
-        <li><strong>Outstanding Technical Achiever</strong> in SCAD College of Engineering and Technology (Spring 2025)</li>
-      </ul>
-    </section>
+        <!-- Certifications -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Certifications</div>
+          <ul class="side-list">
+            <li><strong>Python Essentials 1</strong> — Cisco Networking Academy</li>
+            <li><strong>Web Development</strong> — Prodigy Infotech</li>
+            <li><strong>Python Basics</strong> — HackerRank Certified</li>
+          </ul>
+        </div>
 
-    <!-- Certifications -->
-    <section class="section">
-      <div class="section-title">Certifications</div>
-      <ul class="bullets">
-        <li><strong>Python Essentials 1</strong> — Cisco Networking Academy</li>
-        <li><strong>Web Development</strong> — Prodigy Infotech</li>
-        <li><strong>Python Basics</strong> — HackerRank</li>
-      </ul>
-    </section>
+      </aside>
 
-  </div>
+      <!-- ==================== RIGHT MAIN COLUMN ==================== -->
+      <section class="main-col">
+
+        <!-- Experience -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Experience</div>
+
+          <!-- Cognifyz Technologies -->
+          <div class="item-entry">
+            <div class="item-top">
+              <div>
+                <span class="item-title">Cognifyz Technologies</span>
+                <span class="item-role">— Software Development Internship</span>
+              </div>
+              <span class="item-date-badge">Jan 2026 – Feb 2026</span>
+            </div>
+            <span class="item-location">Remote &bull; Nagpur, Maharashtra</span>
+            <ul class="bullet-list">
+              <li>Engineered software solutions in <strong>Python and Java</strong>, delivering all assigned tasks on schedule.</li>
+              <li>Collaborated with mentors to debug issues and optimize code, applying version control and coding best practices.</li>
+              <li>Automated daily test-result reporting and visualization using Python, improving team visibility.</li>
+            </ul>
+          </div>
+
+          <!-- InternzLearn -->
+          <div class="item-entry" style="margin-top: 10px;">
+            <div class="item-top">
+              <div>
+                <span class="item-title">InternzLearn</span>
+                <span class="item-role">— Cyber Security Internship</span>
+              </div>
+              <span class="item-date-badge">March 2025 – April 2025</span>
+            </div>
+            <span class="item-location">Remote &bull; Bengaluru, Karnataka</span>
+            <ul class="bullet-list">
+              <li>Analyzed network security fundamentals and common cyber threats, strengthening understanding of attack vectors and defense mechanisms.</li>
+              <li>Conducted vulnerability assessments and applied system protection best practices.</li>
+              <li>Evaluated web application exposure to cyber risks and applied secure coding principles.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div>
+          <div class="section-title"><span class="bar"></span> Featured Projects</div>
+
+          <!-- SafeHer -->
+          <div class="item-entry">
+            <div class="item-top">
+              <div>
+                <span class="item-title">SafeHer — Women Safety Application</span>
+                <span style="font-size: 10.5px; color: var(--slate-500); font-weight: 600;">(Hackathon)</span>
+              </div>
+              <span class="item-date-badge">March 2026</span>
+            </div>
+            <div class="item-stack">React Native &bull; Expo &bull; Supabase &bull; GPS &bull; MySQL &bull; MCP</div>
+            <ul class="bullet-list">
+              <li>Architected a mobile safety app delivering real-time location sharing and instant SOS alerts.</li>
+              <li>Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing response time by <span class="metric-tag">3 Seconds</span>.</li>
+              <li>Secured user authentication and database management with Supabase and MySQL.</li>
+              <li>Integrated <strong>MCP (Model Context Protocol)</strong> to enable contextual smart replies and dynamic tool integrations for safety users.</li>
+            </ul>
+          </div>
+
+          <!-- ERP Attendance System -->
+          <div class="item-entry" style="margin-top: 10px;">
+            <div class="item-top">
+              <div>
+                <span class="item-title">ERP Attendance Management System</span>
+                <span style="font-size: 10.5px; color: var(--slate-500); font-weight: 600;">(College Academic)</span>
+              </div>
+              <span class="item-date-badge">April 2026</span>
+            </div>
+            <div class="item-stack">React.js &bull; Firebase &bull; PostgreSQL &bull; MCP Architecture</div>
+            <ul class="bullet-list">
+              <li>Developed an ERP-based attendance management system to automate student attendance tracking and reduce manual record-keeping.</li>
+              <li>Implemented role-based access control (RBAC) for Admin, Faculty, and Students.</li>
+              <li>Built automated percentage calculation and report generation, serving <span class="metric-tag">180+ users</span>.</li>
+              <li>Leveraged <strong>MCP</strong> to securely connect and fetch real-time student records across databases and external automated tools.</li>
+            </ul>
+          </div>
+
+          <!-- SecureChat -->
+          <div class="item-entry" style="margin-top: 10px;">
+            <div class="item-top">
+              <div>
+                <span class="item-title">SecureChat — Secure Communication Application</span>
+              </div>
+              <span class="item-date-badge">November 2025</span>
+            </div>
+            <div class="item-stack">IndexedDB &bull; AES-256 &bull; React &bull; Tailwind CSS &bull; MCP</div>
+            <ul class="bullet-list">
+              <li>Built an end-to-end encrypted real-time messaging platform using <strong>AES-256</strong>.</li>
+              <li>Implemented secure authentication and encrypted message storage using <strong>IndexedDB</strong>.</li>
+              <li>Engineered reliable message handling to protect data privacy across conversations.</li>
+              <li>Utilized <strong>MCP architecture</strong> to seamlessly handle secure communication protocols and manage tool context between users.</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
 </body>
 </html>

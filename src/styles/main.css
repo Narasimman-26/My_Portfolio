@@ -549,6 +549,46 @@ body {
   animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+#resume-modal .modal-card {
+  max-width: 900px;
+  width: 95%;
+  background: #0b1120;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.12);
+}
+
+.resume-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.resume-pill.highlight {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.resume-metric-tag {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
 @keyframes modalPop {
   0% { transform: scale(0.94) translateY(10px); opacity: 0; }
   100% { transform: scale(1) translateY(0); opacity: 1; }
@@ -577,6 +617,7 @@ body {
     border: none !important;
     box-shadow: none !important;
     max-width: 100% !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
   }
@@ -585,7 +626,7 @@ body {
   }
   #printable-resume {
     color: #1e293b !important;
-    padding: 20px 24px !important;
+    padding: 24px 30px !important;
   }
   #printable-resume h1 {
     color: #0f172a !important;
@@ -615,5 +656,28 @@ body {
   }
   #printable-resume .text-cyan-300 {
     color: #0369a1 !important;
+  }
+  #printable-resume .bg-white\/\[0\.03\] {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+  }
+  #printable-resume .bg-white\/5 {
+    background: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+  }
+  .resume-pill {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #334155 !important;
+  }
+  .resume-pill.highlight {
+    background: #e0f2fe !important;
+    border-color: #7dd3fc !important;
+    color: #0369a1 !important;
+  }
+  .resume-metric-tag {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #15803d !important;
   }
 }
