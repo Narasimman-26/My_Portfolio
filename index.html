@@ -1374,54 +1374,6 @@
 
       </div>
     </section>
-
-        <!-- Interactive Direct Message Form -->
-        <div class="lg:col-span-7 glass-panel p-8 rounded-3xl relative overflow-hidden">
-          <h3 class="text-2xl font-bold font-outfit text-white mb-2">Send a Direct Message</h3>
-          <p class="text-gray-400 text-sm mb-6 font-mono">Dispatches directly to Narasimman's inbox with real-time feedback.</p>
-
-          <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-name">YOUR NAME *</label>
-                <input type="text" id="sender-name" required placeholder="Sundar Pichai" class="form-input">
-              </div>
-              <div>
-                <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-email">YOUR EMAIL *</label>
-                <input type="email" id="sender-email" required placeholder="recruiter@company.com" class="form-input">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-subject">SUBJECT</label>
-              <input type="text" id="sender-subject" placeholder="Opportunity: Software Engineer / Cybersecurity Role" class="form-input">
-            </div>
-
-            <div>
-              <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-message">MESSAGE *</label>
-              <textarea id="sender-message" required rows="4" placeholder="Hi Narasimman, we reviewed your projects and would love to connect..." class="form-input custom-scrollbar"></textarea>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
-              <button type="submit" id="btn-submit-form" class="btn-primary flex items-center gap-2">
-                <span>Send Message</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </button>
-              
-              <a id="btn-whatsapp-direct" href="https://api.whatsapp.com/send?phone=918526824759&text=Hello%20Narasimman%2C%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2">
-                <span>Chat on WhatsApp</span>
-                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.46 3.54 1.34 5.09L2 22l5.16-1.35a9.88 9.88 0 0 0 4.88 1.28h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.19 8.19 0 0 1-5.82 2.42h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.08.81.82-3-.2-.31a8.21 8.21 0 0 1-1.25-4.41c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8 2.53 1.09 2.53.73 2.99.69.45-.05 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.05-.1-.22-.17-.47-.29z" />
-                </svg>
-              </a>
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </section>
   </main>
 
   <!-- ==================== FOOTER ==================== -->
