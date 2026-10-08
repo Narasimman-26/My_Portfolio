@@ -35,20 +35,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Logo -->
       <a href="#hero" class="group flex items-center gap-3 text-decoration-none">
-        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-purple-600 p-[2px] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.6)]">
-          <div class="w-full h-full bg-dark rounded-[10px] flex items-center justify-center font-mono font-bold text-cyan-400 text-lg">
+        <div class="relative w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] p-[1px] transition-transform duration-200 group-hover:-translate-y-0.5">
+          <div class="w-full h-full bg-[#07090e] rounded-[5px] flex items-center justify-center font-mono font-bold text-accent text-base">
             NP
           </div>
         </div>
         <div class="flex items-center">
-          <span class="font-outfit font-bold text-lg text-white tracking-wide group-hover:text-cyan-400 transition-colors">
+          <span class="font-outfit font-bold text-lg text-white tracking-wide group-hover:text-accent transition-colors">
             Narasimman P
           </span>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 rounded-full px-5 py-2 backdrop-blur-lg">
+      <nav class="hidden md:flex items-center gap-1 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[6px] px-3 py-1.5 shadow-sm">
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#experience" class="nav-link">Experience</a>
@@ -60,12 +60,19 @@
 
       <!-- Utility Actions -->
       <div class="flex items-center gap-3">
+        <!-- Theme Toggle: Black & White / Accent -->
+        <button id="theme-toggle" class="btn-icon" title="Toggle Black & White / Accent Theme" aria-label="Toggle Black & White Theme">
+          <svg class="w-4 h-4 text-slate-300" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/>
+          </svg>
+        </button>
+
         <!-- Sound FX Toggle -->
         <button id="sound-toggle" class="btn-icon" title="Toggle Sci-Fi Audio FX" aria-label="Toggle Sci-Fi Audio FX">
-          <svg id="sound-icon-on" class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="sound-icon-on" class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
           </svg>
-          <svg id="sound-icon-off" class="w-5 h-5 text-gray-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="sound-icon-off" class="w-5 h-5 text-slate-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
           </svg>
@@ -89,7 +96,7 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-dark/95 border-b border-white/10 px-6 py-6 space-y-4 backdrop-blur-xl">
+    <div id="mobile-menu" class="hidden md:hidden bg-[#09090b] border-b border-[var(--color-border)] px-6 py-6 space-y-4 shadow-md">
       <a href="#about" class="mobile-nav-link">About</a>
       <a href="#skills" class="mobile-nav-link">Skills</a>
       <a href="#experience" class="mobile-nav-link">Experience</a>
@@ -97,7 +104,7 @@
       <a href="#terminal-section" class="mobile-nav-link">Interactive Terminal</a>
       <a href="#certifications" class="mobile-nav-link">Awards &amp; Certs</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
-      <div class="pt-4 border-t border-white/10 flex gap-3">
+      <div class="pt-4 border-t border-[var(--color-border)] flex gap-3">
         <button id="btn-open-resume-mobile" class="w-full btn-resume justify-center">
           View &amp; Download Resume
         </button>
@@ -107,81 +114,79 @@
 
   <main class="relative z-10 pt-20">
     <!-- ==================== HERO SECTION ==================== -->
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="hero" class="relative min-h-[92vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 pt-6 pb-2">
-      <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-6">
+    <section id="hero" class="relative min-h-[92vh] flex flex-col justify-center px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+      <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-6">
         
         <!-- Left Column: Bio / Headline -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left z-20">
           
-          <!-- Human Status Badge -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono shadow-sm">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          <!-- Human Status Badge (Radius 6px, solid bg, 1px border, no pill, single accent/neutral) -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
+            <span class="relative flex h-2 w-2 items-center justify-center">
+              <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
             </span>
             <span>Open for Software Developer Roles &amp; Internships (2026/2027)</span>
           </div>
 
-          <!-- Bold, Human Title -->
+          <!-- Bold, Human Title (Reduced ~15%, tightened line-height, solid accent) -->
           <div class="space-y-2">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-outfit tracking-tight text-white leading-[1.12]">
-              Software Developer building <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">reliable backends</span>, mobile apps &amp; <span class="text-white">AI tooling</span>.
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-outfit tracking-tight text-white leading-tight">
+              Software Developer building <span class="text-accent">reliable backends</span>, mobile apps &amp; <span class="text-white">AI tooling</span>.
             </h1>
           </div>
 
           <!-- Typing Dynamic Focus Indicator -->
-          <div class="flex items-center justify-center lg:justify-start gap-2 text-base sm:text-xl font-mono text-cyan-300 font-semibold min-h-[2rem]">
-            <span class="text-gray-500">&gt;</span>
-            <span class="text-gray-400 text-xs sm:text-sm uppercase tracking-wider font-normal">Specialization:</span>
-            <span id="typing-text" class="border-r-2 border-cyan-400 pr-1 text-cyan-300">Python &bull; Java &bull; SQL &bull; MCP</span>
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-base sm:text-lg font-mono text-accent font-semibold min-h-[2rem]">
+            <span class="text-slate-500">&gt;</span>
+            <span class="text-slate-400 text-xs sm:text-sm uppercase tracking-wider font-normal">Specialization:</span>
+            <span id="typing-text" class="border-r-2 border-accent pr-1 text-accent">Python &bull; Java &bull; SQL &bull; MCP</span>
           </div>
 
           <!-- Grounded Personal Bio (Authentic Voice) -->
-          <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-            I’m <strong class="text-white font-semibold">Narasimman P</strong>, a Computer Science &amp; Engineering undergrad at 
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+            I’m <strong class="text-white font-semibold">Narasimman P</strong>, a Computer Science &amp; Engineering undergraduate at 
             <strong class="text-white font-semibold">SCAD College of Engineering and Technology (7.3 CGPA)</strong> in Tirunelveli. 
-            With industry internship experience at <strong class="text-cyan-300">Cognifyz Technologies</strong> and 
-            <strong class="text-cyan-300">InternzLearn</strong>, I build high-integrity software combining 
+            With industry internship experience at <strong class="text-white">Cognifyz Technologies</strong> and 
+            <strong class="text-white">InternzLearn</strong>, I build high-integrity software combining 
             <span class="text-white font-medium">Python, Java, SQL, and Web engineering</span> with modern 
-            <strong class="text-cyan-400 font-medium">Model Context Protocol (MCP)</strong> architectures.
+            <strong class="text-accent font-medium">Model Context Protocol (MCP)</strong> architectures.
           </p>
 
-          <!-- Action CTAs -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
-            <a href="#projects" class="btn-primary flex items-center gap-2 group">
+          <!-- Action CTAs (Reusable buttons, solid accent, 6px radius, smaller plain icons) -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#projects" class="btn btn-primary group">
               <span>View Selected Projects</span>
-              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
-            <button onclick="document.getElementById('btn-open-resume').click()" class="btn-secondary flex items-center gap-2">
-              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onclick="document.getElementById('btn-open-resume').click()" class="btn btn-secondary">
+              <svg class="w-3.5 h-3.5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <span>Inspect CV / Resume</span>
             </button>
-            <a href="#contact" class="btn-ghost flex items-center gap-2">
+            <a href="#contact" class="btn btn-ghost">
               <span>Get In Touch</span>
             </a>
           </div>
 
           <!-- Monospace Contact Links -->
-          <div class="pt-5 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs font-mono text-gray-400">
-            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="social-hover flex items-center gap-1.5 hover:text-cyan-300 transition-colors">
-              <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <div class="pt-4 border-t border-[var(--color-border)] flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-mono text-slate-400">
+            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="social-hover flex items-center gap-2 hover:text-white transition-colors">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
               </svg>
               <span>github.com/Narasimman</span>
             </a>
-            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="social-hover flex items-center gap-1.5 hover:text-cyan-300 transition-colors">
-              <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="social-hover flex items-center gap-2 hover:text-white transition-colors">
+              <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z" />
               </svg>
               <span>linkedin.com/in/narasimman</span>
             </a>
-            <span class="flex items-center gap-1.5 text-gray-400">
-              <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="flex items-center gap-2 text-slate-400">
+              <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -190,137 +195,128 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive 3D WebGL Canvas & Mode Switcher -->
+        <!-- Right Column: Developer Profile Photo Card -->
         <div class="lg:col-span-5 relative flex flex-col items-center">
-          <!-- Glassmorphic Hologram Card Container -->
-          <div class="relative w-full aspect-square max-w-[460px] rounded-3xl p-1 bg-gradient-to-b from-cyan-500/20 via-indigo-500/10 to-transparent border border-cyan-500/30 shadow-[0_0_50px_rgba(0,240,255,0.15)] backdrop-blur-xl flex flex-col overflow-hidden">
+          <!-- Profile Card Container (Radius 6px, solid bg, 1px border, subtle shadow) -->
+          <div class="relative w-full max-w-[420px] aspect-square rounded-[6px] p-2.5 bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm flex flex-col items-center justify-between overflow-hidden group">
             
-            <!-- 3D Header Bar inside card -->
-            <div class="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-black/40 text-xs font-mono text-gray-300">
+            <!-- Terminal-style Top Bar -->
+            <div class="w-full flex items-center justify-between px-3 py-2 border-b border-[var(--color-border)] bg-[#07090e] text-xs font-mono text-slate-300 rounded-[4px]">
               <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-                <span class="ml-2 text-cyan-400 font-semibold tracking-wider">ENGINEERING_STACK</span>
+                <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                <span class="ml-2 text-slate-200 font-semibold tracking-wider">DEVELOPER_PROFILE</span>
               </div>
-              <span id="canvas-fps" class="text-green-400">60 FPS</span>
+              <span class="text-accent flex items-center gap-1.5 text-[11px]">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span> ACTIVE
+              </span>
             </div>
 
-            <!-- The WebGL Canvas -->
-            <div class="relative flex-1 w-full h-full cursor-grab active:cursor-grabbing" id="hero-canvas-container">
-              <canvas id="hero-3d-canvas" class="w-full h-full block"></canvas>
-              
-              <!-- Floating Software Dev Domain Info Badge -->
-              <div id="shape-info-badge" class="absolute top-3 left-3 right-3 pointer-events-none flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/75 border border-cyan-500/30 text-[11px] font-mono backdrop-blur-md">
-                <span id="shape-tech-title" class="font-bold text-white flex items-center gap-1.5">⚡ Backend Engine</span>
-                <span id="shape-tech-desc" class="text-cyan-300 text-[10px]">Python &bull; Java &bull; APIs</span>
-              </div>
-
-              <!-- Floating instructions tooltip -->
-              <div class="absolute bottom-3 left-3 right-3 pointer-events-none flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 text-[11px] font-mono text-cyan-300 backdrop-blur-md">
-                <span>🖱️ Drag to rotate &bull; Scroll to zoom</span>
-                <span class="text-white/60">3D Interactive</span>
-              </div>
+            <!-- Profile Image Container -->
+            <div class="relative flex-1 w-full flex items-center justify-center p-3 overflow-hidden">
+              <img 
+                src="./profile.png" 
+                alt="Narasimman P" 
+                class="w-full h-full max-h-[300px] object-contain rounded-[6px] transition-transform duration-300 group-hover:scale-[1.02]"
+                loading="eager"
+              />
             </div>
 
-            <!-- 3D Software Developer Domain Switcher -->
-            <div class="p-2.5 bg-black/50 border-t border-white/10 grid grid-cols-4 gap-1.5 text-xs font-mono">
-              <button class="shape-btn active" data-shape="backend">Backend</button>
-              <button class="shape-btn" data-shape="frontend">Frontend</button>
-              <button class="shape-btn" data-shape="database">Database</button>
-              <button class="shape-btn" data-shape="mobile">Mobile Apps</button>
+            <!-- Status Footer Strip -->
+            <div class="w-full px-3 py-2 border-t border-[var(--color-border)] bg-[#07090e] text-xs font-mono text-slate-400 flex items-center justify-between rounded-[4px]">
+              <span class="text-white font-medium">Narasimman P</span>
+              <span class="text-slate-400 text-[11px]">Software Developer &bull; CSE</span>
             </div>
           </div>
 
-          <!-- Subtext below 3D model -->
-          <div class="mt-3 text-center text-xs font-mono text-gray-400 flex items-center gap-2">
-            <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            Software Developer Tech Stack &bull; Interactive 3D Visualization
+          <!-- Subtext below photo -->
+          <div class="mt-3 text-center text-xs font-mono text-slate-400 flex items-center gap-2">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent"></span>
+            Software Developer &bull; SCAD College of Engineering and Technology
           </div>
         </div>
       </div>
 
-      <!-- Quick Metrics Ribbon (Authentic Engineering Credentials) -->
-      <div class="w-full mt-10 py-5 border-t border-b border-white/10 bg-dark/80 backdrop-blur-md z-10">
+      <!-- Quick Metrics Ribbon (Solid bg, 1px border, single accent numbers, 8px spacing scale) -->
+      <div class="w-full mt-12 py-6 border-t border-b border-[var(--color-border)] bg-[var(--color-surface)] z-10">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center font-mono">
-          <div class="border-r border-white/10">
-            <div class="text-2xl lg:text-3xl font-bold font-outfit text-cyan-400">7.3 CGPA</div>
-            <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">SCAD CET &bull; B.E. CSE ('27)</div>
+          <div class="border-r border-[var(--color-border)]">
+            <div class="text-2xl lg:text-3xl font-bold font-outfit text-accent">7.3 CGPA</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">SCAD CET &bull; B.E. CSE ('27)</div>
           </div>
-          <div class="border-r-0 md:border-r border-white/10">
-            <div class="text-2xl lg:text-3xl font-bold font-outfit text-indigo-400">2 Internships</div>
-            <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Cognifyz &bull; InternzLearn</div>
+          <div class="border-r-0 md:border-r border-[var(--color-border)]">
+            <div class="text-2xl lg:text-3xl font-bold font-outfit text-accent">2 Internships</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Cognifyz &bull; InternzLearn</div>
           </div>
-          <div class="border-r border-white/10">
-            <div class="text-2xl lg:text-3xl font-bold font-outfit text-emerald-400">3 Key Builds</div>
-            <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">SafeHer &bull; ERP &bull; SecureChat</div>
+          <div class="border-r border-[var(--color-border)]">
+            <div class="text-2xl lg:text-3xl font-bold font-outfit text-accent">3 Key Builds</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">SafeHer &bull; ERP &bull; SecureChat</div>
           </div>
           <div>
-            <div class="text-2xl lg:text-3xl font-bold font-outfit text-amber-400">Spring '25</div>
-            <div class="text-xs text-gray-400 mt-1 uppercase tracking-wider">Outstanding Tech Achiever</div>
+            <div class="text-2xl lg:text-3xl font-bold font-outfit text-accent">Spring '25</div>
+            <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Outstanding Tech Achiever</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==================== ABOUT & BACKGROUND ==================== -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+    <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// BACKGROUND &amp; ENGINEERING APPROACH</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Engineering Values &amp; Practical Background
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Bridging computer science fundamentals with production internships, real-time safety apps, and agentic AI tooling.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         <!-- Bio & "Now" Card -->
-        <div class="lg:col-span-7 glass-panel p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden group">
-          <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500"></div>
-
+        <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-[6px] flex flex-col justify-between relative overflow-hidden group">
           <div class="space-y-6">
             <div class="flex items-center gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono text-2xl font-bold">
+              <div class="w-12 h-12 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-white font-mono text-xl font-bold">
                 NP
               </div>
               <div>
-                <h3 class="text-2xl font-bold font-outfit text-white">Narasimman P</h3>
-                <p class="text-sm font-mono text-cyan-400">Final-Year B.E. Computer Science &amp; Engineering &bull; 7.3 CGPA</p>
+                <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white">Narasimman P</h3>
+                <p class="text-xs sm:text-sm font-mono text-slate-400">Final-Year B.E. Computer Science &amp; Engineering &bull; 7.3 CGPA</p>
               </div>
             </div>
 
-            <p class="text-gray-300 leading-relaxed text-base">
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
               I’m a final-year Computer Science &amp; Engineering undergraduate at <strong class="text-white font-semibold">SCAD College of Engineering and Technology</strong> (Sep 2023 – May 2027) in Tirunelveli, Tamil Nadu. My passion lies in building practical software: backends that stay fast under pressure, mobile applications that protect real lives, and secure local-first data systems.
             </p>
 
-            <p class="text-gray-300 leading-relaxed text-base">
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
               During my internships at <strong class="text-white">Cognifyz Technologies</strong> (Software Development) and <strong class="text-white">InternzLearn</strong> (Cybersecurity), I learned that great software isn't just about writing syntax—it's about rigorous testing, defensive security, clean Git collaboration, and automated pipelines that save teams hours of manual effort.
             </p>
 
             <!-- Current Focus / "Now" Box -->
-            <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5">
+            <div class="p-4 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] space-y-2.5">
               <div class="flex items-center justify-between text-xs font-mono">
-                <span class="text-cyan-400 font-bold flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span class="text-accent font-semibold flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
                   CURRENT FOCUS &bull; EARLY 2026
                 </span>
-                <span class="text-gray-400">Tirunelveli, TN</span>
+                <span class="text-slate-400">Tirunelveli, TN</span>
               </div>
-              <ul class="text-xs text-gray-300 space-y-1.5 font-sans leading-relaxed">
+              <ul class="text-xs text-slate-300 space-y-1.5 font-sans leading-relaxed">
                 <li class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-mono shrink-0">&bull;</span>
+                  <span class="text-accent font-mono shrink-0">&bull;</span>
                   <span><strong>AI Protocol Engineering:</strong> Implementing Model Context Protocol (MCP) servers and tools to allow Claude models to interact securely with local databases.</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-mono shrink-0">&bull;</span>
+                  <span class="text-accent font-mono shrink-0">&bull;</span>
                   <span><strong>Core Systems:</strong> Polishing data structures and backend queries in Python, Java, and SQL for SDE technical interviews.</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="text-cyan-400 font-mono shrink-0">&bull;</span>
+                  <span class="text-accent font-mono shrink-0">&bull;</span>
                   <span><strong>Availability:</strong> Actively interviewing for full-time Software Developer roles and summer internships across India.</span>
                 </li>
               </ul>
@@ -328,26 +324,26 @@
 
             <!-- Quick Contact Coordinates -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs">
-              <div class="p-3 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-gray-400 block mb-0.5 text-[11px]">LOCATION</span>
+              <div class="p-3 rounded-[6px] bg-[#07090e] border border-[var(--color-border)]">
+                <span class="text-slate-400 block mb-0.5 text-[11px]">LOCATION</span>
                 <span class="text-white font-medium text-xs">Tirunelveli, TN</span>
               </div>
-              <div class="p-3 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-gray-400 block mb-0.5 text-[11px]">PHONE</span>
+              <div class="p-3 rounded-[6px] bg-[#07090e] border border-[var(--color-border)]">
+                <span class="text-slate-400 block mb-0.5 text-[11px]">PHONE</span>
                 <span class="text-white font-medium text-xs">+91 8526824759</span>
               </div>
-              <div class="p-3 rounded-xl bg-white/5 border border-white/10">
-                <span class="text-gray-400 block mb-0.5 text-[11px]">EMAIL</span>
+              <div class="p-3 rounded-[6px] bg-[#07090e] border border-[var(--color-border)]">
+                <span class="text-slate-400 block mb-0.5 text-[11px]">EMAIL</span>
                 <span class="text-white font-medium text-xs truncate block" title="pnarasimman26@gmail.com">pnarasimman26@...</span>
               </div>
             </div>
           </div>
 
-          <div class="pt-6 flex flex-wrap gap-3.5 items-center">
-            <button class="btn-primary" onclick="document.getElementById('btn-open-resume').click()">
+          <div class="pt-6 flex flex-wrap gap-4 items-center">
+            <button class="btn btn-primary" onclick="document.getElementById('btn-open-resume').click()">
               Open Verified Resume CV
             </button>
-            <a href="mailto:pnarasimman26@gmail.com" class="btn-ghost">
+            <a href="mailto:pnarasimman26@gmail.com" class="btn btn-ghost">
               Send Direct Email
             </a>
           </div>
@@ -356,16 +352,16 @@
         <!-- Right Pillars Card -->
         <div class="lg:col-span-5 space-y-4">
           <!-- Pillar 1 -->
-          <div class="glass-panel p-6 rounded-2xl border-l-4 border-cyan-400 transition-all hover:translate-x-1">
+          <div class="glass-panel p-5 rounded-[6px] border border-[var(--color-border)] border-l-2 border-l-accent transition-transform hover:-translate-y-0.5">
             <div class="flex items-start gap-4">
-              <div class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] text-accent flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
               <div>
-                <h4 class="text-lg font-bold font-outfit text-white">Software Development &amp; Automation</h4>
-                <p class="text-gray-300 text-xs sm:text-sm mt-1 leading-relaxed">
+                <h4 class="text-base sm:text-lg font-bold font-outfit text-white">Software Development &amp; Automation</h4>
+                <p class="text-slate-300 text-xs sm:text-sm mt-1 leading-relaxed">
                   Software Development Internship at <strong class="text-white">Cognifyz Technologies</strong>. Delivered Python &amp; Java solutions, built automated daily test-reporting tools, and optimized modular code.
                 </p>
               </div>
@@ -373,16 +369,16 @@
           </div>
 
           <!-- Pillar 2 -->
-          <div class="glass-panel p-6 rounded-2xl border-l-4 border-indigo-400 transition-all hover:translate-x-1">
+          <div class="glass-panel p-5 rounded-[6px] border border-[var(--color-border)] border-l-2 border-l-accent transition-transform hover:-translate-y-0.5">
             <div class="flex items-start gap-4">
-              <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] text-accent flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
               <div>
-                <h4 class="text-lg font-bold font-outfit text-white">Cybersecurity &amp; Defensive Architecture</h4>
-                <p class="text-gray-300 text-xs sm:text-sm mt-1 leading-relaxed">
+                <h4 class="text-base sm:text-lg font-bold font-outfit text-white">Cybersecurity &amp; Defensive Architecture</h4>
+                <p class="text-slate-300 text-xs sm:text-sm mt-1 leading-relaxed">
                   Cyber Security Internship at <strong class="text-white">InternzLearn</strong>. Analyzed threat vectors, conducted vulnerability audits, and implemented client-side AES-256 encryption in SecureChat.
                 </p>
               </div>
@@ -390,16 +386,16 @@
           </div>
 
           <!-- Pillar 3 -->
-          <div class="glass-panel p-6 rounded-2xl border-l-4 border-emerald-400 transition-all hover:translate-x-1">
+          <div class="glass-panel p-5 rounded-[6px] border border-[var(--color-border)] border-l-2 border-l-accent transition-transform hover:-translate-y-0.5">
             <div class="flex items-start gap-4">
-              <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] text-accent flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
               <div>
-                <h4 class="text-lg font-bold font-outfit text-white">Academic Honors &amp; Leadership</h4>
-                <p class="text-gray-300 text-xs sm:text-sm mt-1 leading-relaxed">
+                <h4 class="text-base sm:text-lg font-bold font-outfit text-white">Academic Honors &amp; Leadership</h4>
+                <p class="text-slate-300 text-xs sm:text-sm mt-1 leading-relaxed">
                   Honored as the <strong class="text-white">Outstanding Technical Achiever (Spring 2025)</strong> at SCAD CET. Maintained a 7.3 CGPA while designing the campus ERP attendance system serving 180+ users.
                 </p>
               </div>
@@ -410,15 +406,15 @@
     </section>
 
     <!-- ==================== TECHNICAL SKILLS & STACK ==================== -->
-    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+    <section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// TECHNICAL TOOLING &amp; CAPABILITIES</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Technical Skills &amp; Applied Stacks
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Technologies and tools verified through production internships, collegiate engineering, and hackathon projects.
         </p>
 
@@ -440,18 +436,18 @@
         <div class="skill-card group" data-category="languages">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-cyan-400 font-bold">Py</span>
+              <span class="text-2xl font-mono text-accent font-bold">Py</span>
               <span class="badge-skill">Primary</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-cyan-400 transition-colors">Python</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Python</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Core language used for daily automation scripts, socket APIs, data formatting, and automated test-reporting tools at Cognifyz internship.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-cyan-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Automation</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Cognifyz</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">APIs</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Automation</span>
+            <span class="tag-pill">Cognifyz</span>
+            <span class="tag-pill">APIs</span>
           </div>
         </div>
 
@@ -459,18 +455,18 @@
         <div class="skill-card group" data-category="languages">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-amber-400 font-bold">Ja</span>
+              <span class="text-2xl font-mono text-accent font-bold">Ja</span>
               <span class="badge-skill">Core Backend</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-amber-400 transition-colors">Java</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Java</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Object-oriented architecture, data structures, enterprise backend patterns, and multi-threaded logic developed through collegiate coursework.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-amber-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">OOP</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">DSA</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">SCAD CET</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">OOP</span>
+            <span class="tag-pill">DSA</span>
+            <span class="tag-pill">SCAD CET</span>
           </div>
         </div>
 
@@ -478,18 +474,18 @@
         <div class="skill-card group" data-category="languages">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-emerald-400 font-bold">SQL</span>
+              <span class="text-2xl font-mono text-accent font-bold">SQL</span>
               <span class="badge-skill">Relational DB</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-emerald-400 transition-colors">SQL &amp; Database Architecture</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">SQL &amp; Database Architecture</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               PostgreSQL and MySQL schema normalization, ACID compliance, complex queries, indexing, and foreign key relationships in campus ERP.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-emerald-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">PostgreSQL</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">MySQL</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">ERP System</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">PostgreSQL</span>
+            <span class="tag-pill">MySQL</span>
+            <span class="tag-pill">ERP System</span>
           </div>
         </div>
 
@@ -497,18 +493,18 @@
         <div class="skill-card group" data-category="languages">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-blue-400 font-bold">C</span>
+              <span class="text-2xl font-mono text-accent font-bold">C</span>
               <span class="badge-skill">Systems</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-blue-400 transition-colors">C Language</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">C Language</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Pointers, manual memory structures, algorithm optimization, and low-level operating systems fundamentals at SCAD CET.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-blue-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Pointers</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Memory</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Algorithms</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Pointers</span>
+            <span class="tag-pill">Memory</span>
+            <span class="tag-pill">Algorithms</span>
           </div>
         </div>
 
@@ -516,18 +512,18 @@
         <div class="skill-card group" data-category="frameworks">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-pink-400 font-bold">📱</span>
+              <span class="text-2xl font-mono text-accent font-bold">📱</span>
               <span class="badge-skill">Mobile Production</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-pink-400 transition-colors">React Native &amp; Expo</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">React Native &amp; Expo</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Engineered SafeHer mobile application with real-time GPS telemetry, low-latency background location tracking, and mobile SOS workflows.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-pink-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">SafeHer</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">GPS Sockets</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Expo</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">SafeHer</span>
+            <span class="tag-pill">GPS Sockets</span>
+            <span class="tag-pill">Expo</span>
           </div>
         </div>
 
@@ -535,18 +531,18 @@
         <div class="skill-card group" data-category="frameworks">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-cyan-300 font-bold">⚛</span>
+              <span class="text-2xl font-mono text-accent font-bold">⚛</span>
               <span class="badge-skill">Frontend UI</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-cyan-300 transition-colors">React.js &amp; Modern Web</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">React.js &amp; Modern Web</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Component lifecycle, reactive hooks, Tailwind CSS layout systems, responsive UX design, and REST client integration in campus dashboards.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-cyan-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">React.js</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Tailwind</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">ERP UI</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">React.js</span>
+            <span class="tag-pill">Tailwind</span>
+            <span class="tag-pill">ERP UI</span>
           </div>
         </div>
 
@@ -554,18 +550,18 @@
         <div class="skill-card group" data-category="frameworks">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-amber-400 font-bold">BaaS</span>
+              <span class="text-2xl font-mono text-accent font-bold">BaaS</span>
               <span class="badge-skill">Cloud Auth</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-amber-400 transition-colors">Supabase &amp; Firebase</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Supabase &amp; Firebase</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Row-Level Security (RLS), real-time database listeners, secure token-based user authentication, and cloud storage management.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-amber-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Supabase Auth</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Firebase</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Realtime</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Supabase Auth</span>
+            <span class="tag-pill">Firebase</span>
+            <span class="tag-pill">Realtime</span>
           </div>
         </div>
 
@@ -573,18 +569,18 @@
         <div class="skill-card group" data-category="ai">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-cyan-400 font-bold">MCP</span>
+              <span class="text-2xl font-mono text-accent font-bold">MCP</span>
               <span class="badge-skill">AI Protocol</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-cyan-400 transition-colors">Claude API &amp; Model Context Protocol</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Claude API &amp; Model Context Protocol</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Architected Model Context Protocol (MCP) integrations across SafeHer, ERP, and SecureChat to provide secure tool calling and context awareness.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-cyan-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">MCP Protocol</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Claude API</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Tool Calling</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">MCP Protocol</span>
+            <span class="tag-pill">Claude API</span>
+            <span class="tag-pill">Tool Calling</span>
           </div>
         </div>
 
@@ -592,18 +588,18 @@
         <div class="skill-card group" data-category="ai">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-emerald-400 font-bold">🤖</span>
+              <span class="text-2xl font-mono text-accent font-bold">🤖</span>
               <span class="badge-skill">Test Automation</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-emerald-400 transition-colors">Playwright &amp; Selenium</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Playwright &amp; Selenium</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               End-to-end browser automation, headless test suites, regression pipelines, and automated UI behavior verification.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-emerald-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">E2E Testing</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Headless</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Pipelines</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">E2E Testing</span>
+            <span class="tag-pill">Headless</span>
+            <span class="tag-pill">Pipelines</span>
           </div>
         </div>
 
@@ -611,18 +607,18 @@
         <div class="skill-card group" data-category="ai">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-rose-400 font-bold">n8n</span>
+              <span class="text-2xl font-mono text-accent font-bold">n8n</span>
               <span class="badge-skill">Orchestration</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-rose-400 transition-colors">n8n Workflow Automation</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">n8n Workflow Automation</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Event-driven automations, webhook listeners, automated alerts, and API orchestration between services.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-rose-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Webhooks</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Event-Driven</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Integrations</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Webhooks</span>
+            <span class="tag-pill">Event-Driven</span>
+            <span class="tag-pill">Integrations</span>
           </div>
         </div>
 
@@ -630,18 +626,18 @@
         <div class="skill-card group" data-category="security">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-red-400 font-bold">Sec</span>
+              <span class="text-2xl font-mono text-accent font-bold">Sec</span>
               <span class="badge-skill">Internship Verified</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-red-400 transition-colors">Cybersecurity &amp; Threat Defense</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Cybersecurity &amp; Threat Defense</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Internship at InternzLearn analyzing attack vectors, vulnerability scanning, network traffic inspection, and secure coding practices.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-red-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">InternzLearn</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Vulnerabilities</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Network Defense</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">InternzLearn</span>
+            <span class="tag-pill">Vulnerabilities</span>
+            <span class="tag-pill">Network Defense</span>
           </div>
         </div>
 
@@ -649,18 +645,18 @@
         <div class="skill-card group" data-category="security">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-teal-400 font-bold">🔐</span>
+              <span class="text-2xl font-mono text-accent font-bold">🔐</span>
               <span class="badge-skill">Cryptography</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-teal-400 transition-colors">AES-256 &amp; IndexedDB</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">AES-256 &amp; IndexedDB</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Client-side symmetric cryptographic encryption preserving zero-knowledge privacy and persistent local storage in SecureChat.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-teal-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">SecureChat</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">AES-256</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Zero-Knowledge</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">SecureChat</span>
+            <span class="tag-pill">AES-256</span>
+            <span class="tag-pill">Zero-Knowledge</span>
           </div>
         </div>
 
@@ -668,18 +664,18 @@
         <div class="skill-card group" data-category="tools">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-yellow-400 font-bold">🐧</span>
+              <span class="text-2xl font-mono text-accent font-bold">🐧</span>
               <span class="badge-skill">OS Environment</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-yellow-400 transition-colors">Linux &amp; Bash Shell</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Linux &amp; Bash Shell</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Command-line navigation, Bash scripting, process inspection, system services, and file permission management.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-yellow-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Bash</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">CLI</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Permissions</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Bash</span>
+            <span class="tag-pill">CLI</span>
+            <span class="tag-pill">Permissions</span>
           </div>
         </div>
 
@@ -687,18 +683,18 @@
         <div class="skill-card group" data-category="tools">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-orange-400 font-bold">Git</span>
+              <span class="text-2xl font-mono text-accent font-bold">Git</span>
               <span class="badge-skill">DevOps</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-orange-400 transition-colors">Git &amp; GitHub</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Git &amp; GitHub</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Feature branching, conflict resolution, clean commit history, pull request reviews, and GitHub Actions workflows.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-orange-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Branching</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Pull Requests</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Collaboration</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Branching</span>
+            <span class="tag-pill">Pull Requests</span>
+            <span class="tag-pill">Collaboration</span>
           </div>
         </div>
 
@@ -706,18 +702,18 @@
         <div class="skill-card group" data-category="tools">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-purple-400 font-bold">🛠️</span>
+              <span class="text-2xl font-mono text-accent font-bold">🛠️</span>
               <span class="badge-skill">Developer Tools</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-purple-400 transition-colors">VS Code, Copilot &amp; Android Studio</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">VS Code, Copilot &amp; Android Studio</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Eclipse IDE, Android Studio emulators, GitHub Copilot code pairing, and MySQL Workbench schema management.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-purple-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">VS Code</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Copilot</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Android Studio</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">VS Code</span>
+            <span class="tag-pill">Copilot</span>
+            <span class="tag-pill">Android Studio</span>
           </div>
         </div>
 
@@ -725,18 +721,18 @@
         <div class="skill-card group" data-category="ai">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-2xl font-mono text-amber-300 font-bold">LLM</span>
+              <span class="text-2xl font-mono text-accent font-bold">LLM</span>
               <span class="badge-skill">AI Architecture</span>
             </div>
-            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-amber-300 transition-colors">Prompt Engineering &amp; JSON Schemas</h3>
-            <p class="text-gray-300 text-xs mt-1.5 leading-relaxed">
+            <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">Prompt Engineering &amp; JSON Schemas</h3>
+            <p class="text-slate-300 text-xs mt-1.5 leading-relaxed">
               Few-shot prompting, structured JSON schema outputs, multi-agent reasoning chains, and AI guardrail implementation.
             </p>
           </div>
-          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-1 font-mono text-[10px] text-amber-300">
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Structured Outputs</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">Guardrails</span>
-            <span class="px-1.5 py-0.5 rounded bg-white/5">JSON Schemas</span>
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex flex-wrap gap-1 font-mono text-[10px]">
+            <span class="tag-pill">Structured Outputs</span>
+            <span class="tag-pill">Guardrails</span>
+            <span class="tag-pill">JSON Schemas</span>
           </div>
         </div>
 
@@ -744,54 +740,54 @@
     </section>
 
     <!-- ==================== EXPERIENCE & EDUCATION ==================== -->
-    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+    <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// WORK EXPERIENCE &amp; EDUCATION</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Industry Internships &amp; Academics
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Hands-on professional engineering contributions, defensive cybersecurity audits, and collegiate milestones.
         </p>
       </div>
 
-      <div class="relative border-l-2 border-cyan-500/30 ml-4 sm:ml-32 md:ml-44 space-y-10">
+      <div class="relative border-l-2 border-[var(--color-border)] ml-4 sm:ml-32 md:ml-44 space-y-10">
         
         <!-- Experience 1: Cognifyz Technologies -->
         <div class="relative pl-8 sm:pl-10 group">
           <!-- Timeline Node Icon -->
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark border-2 border-cyan-400 flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.6)] group-hover:scale-110 transition-transform">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="absolute -left-[15px] top-1.5 w-7 h-7 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-slate-200">
+            <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </div>
 
           <!-- Date Badge on Left (Desktop) -->
-          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-cyan-400 sm:text-right w-36 mb-2 sm:mb-0">
+          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-slate-400 sm:text-right w-36 mb-2 sm:mb-0">
             Jan 2026 – Feb 2026
           </div>
 
           <!-- Card Content -->
-          <div class="glass-panel p-6 sm:p-7 rounded-2xl relative overflow-hidden transition-all duration-300 hover:border-cyan-400/50">
+          <div class="glass-panel p-6 sm:p-7 rounded-[6px] relative overflow-hidden transition-all duration-200 hover:border-[var(--color-border-hover)]">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div>
                 <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white">Software Development Internship</h3>
-                <h4 class="text-cyan-400 font-mono text-xs sm:text-sm">Cognifyz Technologies &bull; Remote &bull; Nagpur, Maharashtra</h4>
+                <h4 class="text-slate-400 font-mono text-xs sm:text-sm">Cognifyz Technologies &bull; Remote &bull; Nagpur, Maharashtra</h4>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+              <span class="px-2 py-0.5 rounded-[4px] text-[11px] font-mono bg-[#07090e] border border-[var(--color-border)] text-slate-300">
                 Software Engineering
               </span>
             </div>
 
-            <ul class="space-y-2 text-gray-300 text-xs sm:text-sm list-disc list-inside marker:text-cyan-400 leading-relaxed mt-3">
+            <ul class="space-y-2 text-slate-300 text-xs sm:text-sm list-disc list-inside marker:text-slate-500 leading-relaxed mt-3">
               <li>Engineered software solutions in <strong>Python and Java</strong>, delivering all assigned modular features on schedule.</li>
               <li>Collaborated with senior mentors to debug production edge-cases, applying strict version control and clean code conventions.</li>
               <li>Automated daily test-result reporting and visualization using Python scripts, saving the engineering team manual overhead.</li>
             </ul>
 
-            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-white/10 font-mono text-xs">
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--color-border)] font-mono text-xs">
               <span class="tag-pill">Python</span>
               <span class="tag-pill">Java</span>
               <span class="tag-pill">Automated Reporting</span>
@@ -804,36 +800,36 @@
         <!-- Experience 2: InternzLearn -->
         <div class="relative pl-8 sm:pl-10 group">
           <!-- Timeline Node Icon -->
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark border-2 border-indigo-400 flex items-center justify-center text-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.6)] group-hover:scale-110 transition-transform">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="absolute -left-[15px] top-1.5 w-7 h-7 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-slate-200">
+            <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
 
           <!-- Date Badge on Left (Desktop) -->
-          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-indigo-400 sm:text-right w-36 mb-2 sm:mb-0">
+          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-slate-400 sm:text-right w-36 mb-2 sm:mb-0">
             March 2025 – April 2025
           </div>
 
           <!-- Card Content -->
-          <div class="glass-panel p-6 sm:p-7 rounded-2xl relative overflow-hidden transition-all duration-300 hover:border-indigo-400/50">
+          <div class="glass-panel p-6 sm:p-7 rounded-[6px] relative overflow-hidden transition-all duration-200 hover:border-[var(--color-border-hover)]">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div>
                 <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white">Cyber Security Internship</h3>
-                <h4 class="text-indigo-400 font-mono text-xs sm:text-sm">InternzLearn &bull; Remote &bull; Bengaluru, Karnataka</h4>
+                <h4 class="text-slate-400 font-mono text-xs sm:text-sm">InternzLearn &bull; Remote &bull; Bengaluru, Karnataka</h4>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-indigo-500/10 border border-indigo-500/30 text-indigo-300">
+              <span class="px-2 py-0.5 rounded-[4px] text-[11px] font-mono bg-[#07090e] border border-[var(--color-border)] text-slate-300">
                 Security Defense
               </span>
             </div>
 
-            <ul class="space-y-2 text-gray-300 text-xs sm:text-sm list-disc list-inside marker:text-indigo-400 leading-relaxed mt-3">
+            <ul class="space-y-2 text-slate-300 text-xs sm:text-sm list-disc list-inside marker:text-slate-500 leading-relaxed mt-3">
               <li>Analyzed network security fundamentals, common attack vectors, and multi-layer defensive countermeasures.</li>
               <li>Conducted system vulnerability assessments, evaluating exposure against OWASP web application benchmarks.</li>
               <li>Authored secure coding guidelines to prevent injection flaws and unauthorized privilege escalation in web backends.</li>
             </ul>
 
-            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-white/10 font-mono text-xs">
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--color-border)] font-mono text-xs">
               <span class="tag-pill">Network Security</span>
               <span class="tag-pill">Vulnerability Audits</span>
               <span class="tag-pill">OWASP Security</span>
@@ -844,33 +840,33 @@
 
         <!-- Experience 3: SCAD College of Engineering & Technology -->
         <div class="relative pl-8 sm:pl-10 group">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-dark border-2 border-emerald-400 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.6)] group-hover:scale-110 transition-transform">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="absolute -left-[15px] top-1.5 w-7 h-7 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-slate-200">
+            <svg class="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
             </svg>
           </div>
 
-          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-emerald-400 sm:text-right w-36 mb-2 sm:mb-0">
+          <div class="sm:absolute sm:-left-44 top-2 text-xs font-mono text-slate-400 sm:text-right w-36 mb-2 sm:mb-0">
             Sep 2023 – May 2027
           </div>
 
-          <div class="glass-panel p-6 sm:p-7 rounded-2xl relative overflow-hidden transition-all duration-300 hover:border-emerald-400/50">
+          <div class="glass-panel p-6 sm:p-7 rounded-[6px] relative overflow-hidden transition-all duration-200 hover:border-[var(--color-border-hover)]">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div>
                 <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white">B.E. in Computer Science and Engineering</h3>
-                <h4 class="text-emerald-400 font-mono text-xs sm:text-sm">SCAD College of Engineering and Technology &bull; Tirunelveli, Tamil Nadu</h4>
+                <h4 class="text-slate-400 font-mono text-xs sm:text-sm">SCAD College of Engineering and Technology &bull; Tirunelveli, Tamil Nadu</h4>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-semibold">
+              <span class="px-2 py-0.5 rounded-[4px] text-[11px] font-mono bg-[#07090e] border border-[var(--color-border)] text-accent font-semibold">
                 7.3 CGPA
               </span>
             </div>
 
-            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mt-3">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mt-3">
               Comprehensive undergraduate studies covering Operating Systems, Database Management Systems (DBMS), Data Structures &amp; Algorithms, Computer Networks, and Information Security. Awarded <strong>Outstanding Technical Achiever (Spring 2025)</strong> for collegiate software project innovation.
             </p>
 
-            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-white/10 font-mono text-xs">
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[var(--color-border)] font-mono text-xs">
               <span class="tag-pill">DSA</span>
               <span class="tag-pill">DBMS &amp; SQL</span>
               <span class="tag-pill">Operating Systems</span>
@@ -884,52 +880,51 @@
     </section>
 
     <!-- ==================== SELECTED PROJECTS ==================== -->
-    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+    <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// SELECTED ENGINEERING PROJECTS</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Featured Systems &amp; Applications
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Practical builds engineered with real-time GPS telemetry, client-side AES-256 encryption, and Model Context Protocol (MCP).
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         <!-- Project 1: SafeHer -->
         <div class="project-card group" data-project="safeher">
-          <div class="relative h-48 bg-gradient-to-br from-pink-900/30 via-purple-900/20 to-dark p-6 flex flex-col justify-between overflow-hidden border-b border-white/10">
+          <div class="relative h-44 bg-[#07090e] p-6 flex flex-col justify-between overflow-hidden border-b border-[var(--color-border)]">
             <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-0.5 rounded-full bg-pink-500/20 text-pink-300 text-[11px] font-mono border border-pink-500/30">
+              <span class="px-2.5 py-0.5 rounded-[4px] bg-[var(--color-surface)] text-slate-300 text-[11px] font-mono border border-[var(--color-border)]">
                 Hackathon Project
               </span>
-              <span class="text-xs font-mono text-emerald-400 font-bold bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded">
+              <span class="text-xs font-mono text-accent font-bold bg-[#07090e] border border-[var(--color-border)] px-2 py-0.5 rounded-[4px]">
                 ⚡ 3s Latency Cut
               </span>
             </div>
             <div class="z-10">
               <span class="text-3xl">🛡️</span>
-              <h3 class="text-2xl font-bold font-outfit text-white mt-1 group-hover:text-pink-300 transition-colors">SafeHer</h3>
-              <p class="text-xs font-mono text-pink-300">Women Safety Application</p>
+              <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white mt-1 group-hover:text-accent transition-colors">SafeHer</h3>
+              <p class="text-xs font-mono text-slate-400">Women Safety Application</p>
             </div>
-            <div class="absolute -right-10 -bottom-10 w-36 h-36 bg-pink-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
           </div>
 
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
               Architected a mobile safety application delivering real-time location sharing and instantaneous 1-tap SOS dispatches. Integrated danger-zone tracking and emergency contact coordination, reducing emergency alert response time by <strong>3 seconds</strong>.
             </p>
 
-            <div class="space-y-1.5 text-xs text-gray-300">
-              <div class="font-mono text-gray-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
+            <div class="space-y-1.5 text-xs text-slate-300">
+              <div class="font-mono text-slate-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
               <ul class="space-y-1 list-disc list-inside">
                 <li>1-Tap SOS triggering with low-latency GPS telemetry</li>
                 <li>Danger-zone tracking with automated safety alerts</li>
                 <li>Secure Supabase authentication and MySQL persistence</li>
-                <li><strong>MCP integration</strong> for smart context and automated responder actions</li>
+                <li><strong class="text-white">MCP integration</strong> for smart context and automated responder actions</li>
               </ul>
             </div>
 
@@ -942,7 +937,7 @@
               <span class="tag-pill">MCP</span>
             </div>
 
-            <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+            <div class="pt-3 border-t border-[var(--color-border)] flex items-center justify-between">
               <button class="btn-card-action" onclick="openProjectModal('safeher')">
                 <span>View Architecture</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -955,35 +950,34 @@
 
         <!-- Project 2: ERP Attendance System -->
         <div class="project-card group" data-project="erp">
-          <div class="relative h-48 bg-gradient-to-br from-cyan-900/30 via-blue-900/20 to-dark p-6 flex flex-col justify-between overflow-hidden border-b border-white/10">
+          <div class="relative h-44 bg-[#07090e] p-6 flex flex-col justify-between overflow-hidden border-b border-[var(--color-border)]">
             <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[11px] font-mono border border-cyan-500/30">
+              <span class="px-2.5 py-0.5 rounded-[4px] bg-[var(--color-surface)] text-slate-300 text-[11px] font-mono border border-[var(--color-border)]">
                 Academic Project
               </span>
-              <span class="text-xs font-mono text-cyan-300 font-bold bg-cyan-950/40 border border-cyan-500/30 px-2 py-0.5 rounded">
+              <span class="text-xs font-mono text-accent font-bold bg-[#07090e] border border-[var(--color-border)] px-2 py-0.5 rounded-[4px]">
                 👥 180+ Users
               </span>
             </div>
             <div class="z-10">
               <span class="text-3xl">📊</span>
-              <h3 class="text-2xl font-bold font-outfit text-white mt-1 group-hover:text-cyan-300 transition-colors">ERP Attendance System</h3>
-              <p class="text-xs font-mono text-cyan-300">College Academic Management Project</p>
+              <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white mt-1 group-hover:text-accent transition-colors">ERP Attendance System</h3>
+              <p class="text-xs font-mono text-slate-400">College Academic Management Project</p>
             </div>
-            <div class="absolute -right-10 -bottom-10 w-36 h-36 bg-cyan-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
           </div>
 
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
               Developed a campus ERP attendance management system to automate student tracking, eliminate error-prone manual paper logs, and generate instantaneous compliance percentages serving <strong>180+ active campus users</strong>.
             </p>
 
-            <div class="space-y-1.5 text-xs text-gray-300">
-              <div class="font-mono text-gray-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
+            <div class="space-y-1.5 text-xs text-slate-300">
+              <div class="font-mono text-slate-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
               <ul class="space-y-1 list-disc list-inside">
                 <li>Multi-role RBAC security for Admin, Faculty, and Students</li>
                 <li>Automated percentage calculations &amp; dynamic export reports</li>
                 <li>Reliable PostgreSQL database modeling and relational queries</li>
-                <li><strong>MCP connectivity</strong> for real-time student record fetching</li>
+                <li><strong class="text-white">MCP connectivity</strong> for real-time student record fetching</li>
               </ul>
             </div>
 
@@ -995,7 +989,7 @@
               <span class="tag-pill">RBAC</span>
             </div>
 
-            <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+            <div class="pt-3 border-t border-[var(--color-border)] flex items-center justify-between">
               <button class="btn-card-action" onclick="openProjectModal('erp')">
                 <span>View Architecture</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1008,35 +1002,34 @@
 
         <!-- Project 3: SecureChat -->
         <div class="project-card group" data-project="securechat">
-          <div class="relative h-48 bg-gradient-to-br from-emerald-900/30 via-teal-900/20 to-dark p-6 flex flex-col justify-between overflow-hidden border-b border-white/10">
+          <div class="relative h-44 bg-[#07090e] p-6 flex flex-col justify-between overflow-hidden border-b border-[var(--color-border)]">
             <div class="flex items-center justify-between z-10">
-              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-mono border border-emerald-500/30">
+              <span class="px-2.5 py-0.5 rounded-[4px] bg-[var(--color-surface)] text-slate-300 text-[11px] font-mono border border-[var(--color-border)]">
                 Encrypted Messaging
               </span>
-              <span class="text-xs font-mono text-emerald-300 font-bold bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded">
+              <span class="text-xs font-mono text-accent font-bold bg-[#07090e] border border-[var(--color-border)] px-2 py-0.5 rounded-[4px]">
                 🔒 AES-256
               </span>
             </div>
             <div class="z-10">
               <span class="text-3xl">🔐</span>
-              <h3 class="text-2xl font-bold font-outfit text-white mt-1 group-hover:text-emerald-300 transition-colors">SecureChat</h3>
-              <p class="text-xs font-mono text-emerald-300">Secure Communication Application</p>
+              <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white mt-1 group-hover:text-accent transition-colors">SecureChat</h3>
+              <p class="text-xs font-mono text-slate-400">Secure Communication Application</p>
             </div>
-            <div class="absolute -right-10 -bottom-10 w-36 h-36 bg-emerald-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
           </div>
 
           <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
               Built an end-to-end encrypted real-time messaging platform using <strong>AES-256</strong> with local cryptographic storage via <strong>IndexedDB</strong>, ensuring zero-knowledge privacy where plaintext messages never leave user devices unencrypted.
             </p>
 
-            <div class="space-y-1.5 text-xs text-gray-300">
-              <div class="font-mono text-gray-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
+            <div class="space-y-1.5 text-xs text-slate-300">
+              <div class="font-mono text-slate-400 uppercase tracking-wider text-[11px]">Technical Highlights:</div>
               <ul class="space-y-1 list-disc list-inside">
                 <li>Client-side symmetric AES-256 message encryption &amp; decryption</li>
                 <li>Encrypted browser persistence using IndexedDB</li>
                 <li>Integrity verification protecting user communications</li>
-                <li><strong>MCP architecture</strong> for managing secure tool context and protocols</li>
+                <li><strong class="text-white">MCP architecture</strong> for managing secure tool context and protocols</li>
               </ul>
             </div>
 
@@ -1048,7 +1041,7 @@
               <span class="tag-pill">MCP Architecture</span>
             </div>
 
-            <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+            <div class="pt-3 border-t border-[var(--color-border)] flex items-center justify-between">
               <button class="btn-card-action" onclick="openProjectModal('securechat')">
                 <span>View Architecture</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1063,57 +1056,57 @@
     </section>
 
     <!-- ==================== DEVELOPER CONSOLE ==================== -->
-    <section id="terminal-section" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <section id="terminal-section" class="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
       <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// DEVELOPER CONSOLE</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Interactive Web Console
         </h2>
-        <p class="text-gray-300 text-base">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           A lightweight terminal interface to quickly query background details, verified skills, and project data.
         </p>
       </div>
 
       <!-- Terminal Window -->
-      <div class="rounded-2xl border border-cyan-500/30 bg-[#07090e]/95 shadow-[0_0_50px_rgba(0,240,255,0.08)] backdrop-blur-2xl overflow-hidden font-mono text-sm">
+      <div class="rounded-[6px] border border-[var(--color-border)] bg-[#07090e] shadow-md overflow-hidden font-mono text-sm">
         <!-- Terminal Header -->
-        <div class="px-5 py-3.5 bg-black/60 border-b border-white/10 flex items-center justify-between">
+        <div class="px-5 py-3.5 bg-[#05070a] border-b border-[var(--color-border)] flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-            <span class="text-xs text-gray-400 ml-2">narasimman@portfolio:~ (bash)</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span class="text-xs text-slate-400 ml-2">narasimman@portfolio:~ (bash)</span>
           </div>
-          <span class="text-xs text-cyan-400 font-semibold">SESSION ACTIVE ⚡</span>
+          <span class="text-xs text-accent font-semibold">SESSION ACTIVE ⚡</span>
         </div>
 
         <!-- Terminal Output Area -->
-        <div id="terminal-output" class="p-6 space-y-3 min-h-[280px] max-h-[440px] overflow-y-auto custom-scrollbar">
-          <div class="text-cyan-400 font-mono text-xs sm:text-sm overflow-hidden">
-            <div class="text-cyan-700 truncate">-----------------------------------------------------------------</div>
+        <div id="terminal-output" class="p-6 space-y-3 min-h-[280px] max-h-[440px] overflow-y-auto custom-scrollbar bg-[#07090e]">
+          <div class="text-accent font-mono text-xs sm:text-sm overflow-hidden">
+            <div class="text-slate-600 truncate">-----------------------------------------------------------------</div>
             <div class="font-bold">&gt; Welcome to Narasimman P's Developer Console [v2.6]</div>
-            <div>&gt; Type <span class="text-yellow-400 font-bold">'help'</span> to see all available commands.</div>
-            <div class="text-cyan-700 truncate">-----------------------------------------------------------------</div>
+            <div>&gt; Type <span class="text-white font-bold">'help'</span> to see all available commands.</div>
+            <div class="text-slate-600 truncate">-----------------------------------------------------------------</div>
           </div>
-          <div class="text-gray-400 text-xs">
-            Status: <span class="text-emerald-400">Available</span> &bull; Focus: <span class="text-cyan-400">Software Developer / MCP</span> &bull; Candidate: <span class="text-white">Narasimman P (SCAD CET)</span>
+          <div class="text-slate-400 text-xs">
+            Status: <span class="text-accent">Available</span> &bull; Focus: <span class="text-accent">Software Developer / MCP</span> &bull; Candidate: <span class="text-white">Narasimman P (SCAD CET)</span>
           </div>
         </div>
 
         <!-- Terminal Input Line -->
-        <div class="p-4 bg-black/40 border-t border-white/10 flex items-center gap-2">
-          <span class="text-cyan-400 font-bold">narasimman@portfolio:~$</span>
+        <div class="p-3.5 bg-[#05070a] border-t border-[var(--color-border)] flex items-center gap-2">
+          <span class="text-accent font-bold">narasimman@portfolio:~$</span>
           <input type="text" id="terminal-input" class="flex-1 bg-transparent text-white focus:outline-none font-mono text-sm" placeholder="Type 'help', 'skills', 'projects', 'resume'..." autocomplete="off" spellcheck="false">
-          <button id="terminal-submit-btn" class="px-3.5 py-1 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs hover:bg-cyan-500 hover:text-black transition-colors font-semibold">
+          <button id="terminal-submit-btn" class="px-3.5 py-1.5 rounded-[6px] bg-[var(--color-surface)] text-accent border border-[var(--color-border)] hover:bg-[var(--color-surface-hover)] text-xs font-semibold transition-colors">
             Run
           </button>
         </div>
 
         <!-- Quick Command Chips -->
-        <div class="p-3 bg-black/70 border-t border-white/10 flex flex-wrap items-center gap-2 text-xs">
-          <span class="text-gray-500 text-[11px]">Quick run:</span>
+        <div class="p-3 bg-[#07090e] border-t border-[var(--color-border)] flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-400 text-[11px]">Quick run:</span>
           <button class="cmd-chip" data-cmd="help">help</button>
           <button class="cmd-chip" data-cmd="about">about</button>
           <button class="cmd-chip" data-cmd="skills">skills</button>
@@ -1128,15 +1121,15 @@
     </section>
 
     <!-- ==================== AWARDS & CERTIFICATIONS ==================== -->
-    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300 text-xs font-mono">
+    <section id="certifications" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// HONORS &amp; CREDENTIALS</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Awards &amp; Industry Certifications
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Collegiate honors and verified technical evaluations validating programming proficiency and problem-solving.
         </p>
       </div>
@@ -1144,77 +1137,76 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- Award 1: OutStanding Technical Achiever -->
-        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group border-amber-500/40 hover:border-amber-400 transition-all duration-300 hover:-translate-y-1">
-          <div class="absolute -right-8 -top-8 w-24 h-24 bg-amber-500/20 rounded-full blur-xl"></div>
-          <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 text-2xl mb-4">
+        <div class="glass-panel p-6 rounded-[6px] relative overflow-hidden group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-transform hover:-translate-y-0.5">
+          <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent text-xl mb-4">
             🏆
           </div>
-          <span class="text-[11px] font-mono text-amber-400 font-semibold uppercase tracking-wider block mb-1">COLLEGIATE AWARD</span>
-          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-amber-300 transition-colors">
+          <span class="text-[11px] font-mono text-accent font-semibold uppercase tracking-wider block mb-1">COLLEGIATE AWARD</span>
+          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">
             Outstanding Technical Achiever
           </h3>
-          <p class="text-xs font-mono text-gray-400 mt-1">SCAD College of Engg &amp; Tech</p>
-          <p class="text-xs text-gray-300 mt-3 leading-relaxed">
+          <p class="text-xs font-mono text-slate-400 mt-1">SCAD College of Engg &amp; Tech</p>
+          <p class="text-xs text-slate-300 mt-3 leading-relaxed">
             Honored for exceptional technical innovation, collegiate project execution, and problem-solving excellence.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-amber-400">
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex items-center justify-between text-xs font-mono text-slate-400">
             <span>Spring 2025</span>
-            <span>⭐ Honor</span>
+            <span class="text-accent font-semibold">⭐ Honor</span>
           </div>
         </div>
 
         <!-- Cert 1: Cisco Networking Academy -->
-        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:border-cyan-400 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-4">
+        <div class="glass-panel p-6 rounded-[6px] relative overflow-hidden group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-transform hover:-translate-y-0.5">
+          <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent text-xl mb-4">
             📜
           </div>
-          <span class="text-[11px] font-mono text-cyan-400 font-semibold uppercase tracking-wider block mb-1">CERTIFICATION</span>
-          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-cyan-300 transition-colors">
+          <span class="text-[11px] font-mono text-accent font-semibold uppercase tracking-wider block mb-1">CERTIFICATION</span>
+          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">
             Python Essentials 1
           </h3>
-          <p class="text-xs font-mono text-gray-400 mt-1">Cisco Networking Academy</p>
-          <p class="text-xs text-gray-300 mt-3 leading-relaxed">
+          <p class="text-xs font-mono text-slate-400 mt-1">Cisco Networking Academy</p>
+          <p class="text-xs text-slate-300 mt-3 leading-relaxed">
             Core Python fundamentals, algorithmic flow, modular architecture, and structured program implementation.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-cyan-400">
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex items-center justify-between text-xs font-mono text-slate-400">
             <span>Verified</span>
             <span>Cisco Academy</span>
           </div>
         </div>
 
         <!-- Cert 2: Prodigy Infotech -->
-        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:border-indigo-400 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-2xl mb-4">
+        <div class="glass-panel p-6 rounded-[6px] relative overflow-hidden group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-transform hover:-translate-y-0.5">
+          <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent text-xl mb-4">
             🌐
           </div>
-          <span class="text-[11px] font-mono text-indigo-400 font-semibold uppercase tracking-wider block mb-1">CERTIFICATION</span>
-          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-indigo-300 transition-colors">
+          <span class="text-[11px] font-mono text-accent font-semibold uppercase tracking-wider block mb-1">CERTIFICATION</span>
+          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">
             Web Development
           </h3>
-          <p class="text-xs font-mono text-gray-400 mt-1">Prodigy Infotech</p>
-          <p class="text-xs text-gray-300 mt-3 leading-relaxed">
+          <p class="text-xs font-mono text-slate-400 mt-1">Prodigy Infotech</p>
+          <p class="text-xs text-slate-300 mt-3 leading-relaxed">
             Full-spectrum web application engineering, modern user interfaces, RESTful services, and responsive design systems.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-indigo-400">
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex items-center justify-between text-xs font-mono text-slate-400">
             <span>Verified</span>
             <span>Industry Credential</span>
           </div>
         </div>
 
         <!-- Cert 3: HackerRank -->
-        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:border-emerald-400 transition-all duration-300 hover:-translate-y-1">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-2xl mb-4">
+        <div class="glass-panel p-6 rounded-[6px] relative overflow-hidden group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-transform hover:-translate-y-0.5">
+          <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent text-xl mb-4">
             ⚡
           </div>
-          <span class="text-[11px] font-mono text-emerald-400 font-semibold uppercase tracking-wider block mb-1">SKILL ASSESSMENT</span>
-          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-emerald-300 transition-colors">
+          <span class="text-[11px] font-mono text-accent font-semibold uppercase tracking-wider block mb-1">SKILL ASSESSMENT</span>
+          <h3 class="text-lg font-bold font-outfit text-white group-hover:text-accent transition-colors">
             Python Basics
           </h3>
-          <p class="text-xs font-mono text-gray-400 mt-1">HackerRank</p>
-          <p class="text-xs text-gray-300 mt-3 leading-relaxed">
+          <p class="text-xs font-mono text-slate-400 mt-1">HackerRank</p>
+          <p class="text-xs text-slate-300 mt-3 leading-relaxed">
             Standardized competitive programming evaluation testing problem-solving speed, data structures, and edge-case handling.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-emerald-400">
+          <div class="mt-4 pt-3 border-t border-[var(--color-border)] flex items-center justify-between text-xs font-mono text-slate-400">
             <span>Verified</span>
             <span>HackerRank</span>
           </div>
@@ -1224,15 +1216,16 @@
     </section>
 
     <!-- ==================== CONTACT SECTION ==================== -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-[6px] bg-[var(--color-surface)] border border-[var(--color-border)] text-slate-300 text-xs font-mono shadow-sm">
           <span>// GET IN TOUCH</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
+        <h2 class="text-2xl sm:text-4xl font-bold font-outfit text-white tracking-tight">
           Let's Connect &bull; Open for Opportunities
         </h2>
-        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
           Open to full-time Software Developer roles, backend engineering positions, and cybersecurity opportunities.
         </p>
       </div>
@@ -1242,44 +1235,44 @@
         <!-- Contact Details & Direct Actions -->
         <div class="lg:col-span-5 space-y-4">
           <!-- Email Card -->
-          <div class="glass-panel p-6 rounded-2xl flex items-center justify-between group hover:border-cyan-400 transition-colors">
+          <div class="glass-panel p-6 rounded-[6px] flex items-center justify-between group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
-                <span class="text-xs font-mono text-gray-400 block">PRIMARY EMAIL</span>
-                <a href="mailto:pnarasimman26@gmail.com" class="text-white font-medium hover:text-cyan-400 transition-colors break-all">
+                <span class="text-xs font-mono text-slate-400 block">PRIMARY EMAIL</span>
+                <a href="mailto:pnarasimman26@gmail.com" class="text-white font-medium hover:text-accent transition-colors break-all">
                   pnarasimman26@gmail.com
                 </a>
               </div>
             </div>
             <button class="btn-copy" onclick="copyToClipboard('pnarasimman26@gmail.com', 'Email copied to clipboard!')" title="Copy Email">
-              <svg class="w-5 h-5 text-gray-400 group-hover:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             </button>
           </div>
 
           <!-- Phone Card -->
-          <div class="glass-panel p-6 rounded-2xl flex items-center justify-between group hover:border-cyan-400 transition-colors">
+          <div class="glass-panel p-6 rounded-[6px] flex items-center justify-between group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <div>
-                <span class="text-xs font-mono text-gray-400 block">DIRECT PHONE</span>
-                <a href="tel:+918526824759" class="text-white font-medium hover:text-emerald-400 transition-colors">
+                <span class="text-xs font-mono text-slate-400 block">DIRECT PHONE</span>
+                <a href="tel:+918526824759" class="text-white font-medium hover:text-accent transition-colors">
                   +91 8526824759
                 </a>
               </div>
             </div>
             <button class="btn-copy" onclick="copyToClipboard('8526824759', 'Phone number copied to clipboard!')" title="Copy Phone Number">
-              <svg class="w-5 h-5 text-gray-400 group-hover:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 text-slate-400 group-hover:text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             </button>
@@ -1287,70 +1280,70 @@
 
           <!-- Social Links Grid -->
           <div class="grid grid-cols-2 gap-4">
-            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="glass-panel p-5 rounded-2xl flex items-center gap-3 group hover:border-cyan-400 transition-colors">
-              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="glass-panel p-4 rounded-[6px] flex items-center gap-3 group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
+              <div class="w-9 h-9 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z" />
                 </svg>
               </div>
               <div>
-                <span class="text-xs text-gray-400 block font-mono">LINKEDIN</span>
-                <span class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">in/narasimman</span>
+                <span class="text-[11px] text-slate-400 block font-mono">LINKEDIN</span>
+                <span class="text-xs font-semibold text-white group-hover:text-accent transition-colors">in/narasimman</span>
               </div>
             </a>
 
-            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="glass-panel p-5 rounded-2xl flex items-center gap-3 group hover:border-cyan-400 transition-colors">
-              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white shrink-0">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="glass-panel p-4 rounded-[6px] flex items-center gap-3 group border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
+              <div class="w-9 h-9 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-white shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                 </svg>
               </div>
               <div>
-                <span class="text-xs text-gray-400 block font-mono">GITHUB</span>
-                <span class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">Narasimman</span>
+                <span class="text-[11px] text-slate-400 block font-mono">GITHUB</span>
+                <span class="text-xs font-semibold text-white group-hover:text-accent transition-colors">Narasimman</span>
               </div>
             </a>
           </div>
 
           <!-- Location Note -->
-          <div class="glass-panel p-5 rounded-2xl flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 shrink-0">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="glass-panel p-4 rounded-[6px] flex items-center gap-3 border border-[var(--color-border)]">
+            <div class="w-9 h-9 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] flex items-center justify-center text-accent shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div>
-              <span class="text-xs text-gray-400 block font-mono">LOCATION &bull; RELOCATION</span>
-              <span class="text-sm font-semibold text-white">Tirunelveli, Tamil Nadu, India (Open to Relocation &amp; Remote)</span>
+              <span class="text-[11px] text-slate-400 block font-mono">LOCATION &bull; RELOCATION</span>
+              <span class="text-xs sm:text-sm font-semibold text-white">Tirunelveli, Tamil Nadu, India (Open to Relocation &amp; Remote)</span>
             </div>
           </div>
         </div>
 
         <!-- Interactive Direct Message Form -->
-        <div class="lg:col-span-7 glass-panel p-8 rounded-3xl relative overflow-hidden">
-          <h3 class="text-2xl font-bold font-outfit text-white mb-1.5">Send a Direct Message</h3>
-          <p class="text-gray-300 text-xs sm:text-sm mb-6 font-mono">Dispatches directly to Narasimman's inbox with instant confirmation.</p>
+        <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-[6px] border border-[var(--color-border)] relative overflow-hidden">
+          <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white mb-1.5">Send a Direct Message</h3>
+          <p class="text-slate-300 text-xs sm:text-sm mb-6 font-mono">Dispatches directly to Narasimman's inbox with instant confirmation.</p>
 
           <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-name">YOUR NAME *</label>
+                <label class="block text-xs font-mono text-slate-300 mb-1.5" for="sender-name">YOUR NAME *</label>
                 <input type="text" id="sender-name" required placeholder="Sundar Pichai" class="form-input">
               </div>
               <div>
-                <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-email">YOUR EMAIL *</label>
+                <label class="block text-xs font-mono text-slate-300 mb-1.5" for="sender-email">YOUR EMAIL *</label>
                 <input type="email" id="sender-email" required placeholder="recruiter@company.com" class="form-input">
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-subject">SUBJECT</label>
+              <label class="block text-xs font-mono text-slate-300 mb-1.5" for="sender-subject">SUBJECT</label>
               <input type="text" id="sender-subject" placeholder="Opportunity: Software Engineer / Backend Developer Role" class="form-input">
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-gray-300 mb-1.5" for="sender-message">MESSAGE *</label>
+              <label class="block text-xs font-mono text-slate-300 mb-1.5" for="sender-message">MESSAGE *</label>
               <textarea id="sender-message" required rows="4" placeholder="Hi Narasimman, we reviewed your projects and would love to connect..." class="form-input custom-scrollbar"></textarea>
             </div>
 
@@ -1377,20 +1370,20 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="py-12 border-t border-white/10 bg-black/60 relative z-10 text-center font-mono text-sm text-gray-400">
+  <footer class="py-12 border-t border-[var(--color-border)] bg-[#05070a] relative z-10 text-center font-mono text-sm text-slate-400">
     <div class="max-w-7xl mx-auto px-4 space-y-4">
       <div class="flex items-center justify-center gap-6">
-        <a href="#hero" class="hover:text-cyan-400 transition-colors">Top</a>
-        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
-        <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">GitHub</a>
-        <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+        <a href="#hero" class="hover:text-accent transition-colors">Top</a>
+        <a href="#about" class="hover:text-accent transition-colors">About</a>
+        <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+        <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">LinkedIn</a>
       </div>
       <p>
         &copy; <span id="year">2026</span> <strong class="text-white font-semibold">Narasimman P</strong>. Built with Three.js WebGL, Modern Web Standards &amp; Cyber Aesthetics.
       </p>
-      <div class="text-xs text-gray-500">
+      <div class="text-xs text-slate-500">
         SCAD College of Engineering and Technology &bull; Computer Science &amp; Engineering &bull; Tirunelveli, Tamil Nadu
       </div>
     </div>
@@ -1399,27 +1392,27 @@
   <!-- ==================== PROJECT ARCHITECTURE MODAL ==================== -->
   <div id="project-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
     <div class="modal-card custom-scrollbar">
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+      <div class="flex items-center justify-between pb-4 border-b border-[var(--color-border)]">
         <div class="flex items-center gap-3">
           <span id="modal-icon" class="text-2xl">🛡️</span>
           <div>
-            <h3 id="modal-title" class="text-2xl font-bold font-outfit text-white">Project Title</h3>
-            <p id="modal-subtitle" class="text-xs font-mono text-cyan-400">Category &bull; Date</p>
+            <h3 id="modal-title" class="text-xl sm:text-2xl font-bold font-outfit text-white">Project Title</h3>
+            <p id="modal-subtitle" class="text-xs font-mono text-accent">Category &bull; Date</p>
           </div>
         </div>
-        <button id="modal-close-btn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10" aria-label="Close Modal">
+        <button id="modal-close-btn" class="p-2 text-slate-400 hover:text-white rounded-[6px] hover:bg-white/10" aria-label="Close Modal">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <div id="modal-body" class="py-6 space-y-6 text-gray-300 text-sm leading-relaxed">
+      <div id="modal-body" class="py-6 space-y-6 text-slate-300 text-sm leading-relaxed">
         <!-- Content injected dynamically -->
       </div>
 
-      <div class="pt-4 border-t border-white/10 flex justify-end gap-3 font-mono text-xs">
-        <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors">
+      <div class="pt-4 border-t border-[var(--color-border)] flex justify-end gap-3 font-mono text-xs">
+        <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-[6px] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border)] text-white transition-colors">
           Close
         </button>
       </div>
@@ -1429,16 +1422,16 @@
   <!-- ==================== INTERACTIVE RESUME MODAL ==================== -->
   <div id="resume-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
     <div class="modal-card max-w-4xl custom-scrollbar">
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+      <div class="flex items-center justify-between pb-4 border-b border-[var(--color-border)]">
         <div class="flex items-center gap-3">
           <span class="text-2xl">📄</span>
           <div>
-            <h3 class="text-2xl font-bold font-outfit text-white">Narasimman P &mdash; Curriculum Vitae</h3>
-            <p class="text-xs font-mono text-cyan-400">Verified Resume &bull; SCAD CET &bull; B.E. CSE</p>
+            <h3 class="text-xl sm:text-2xl font-bold font-outfit text-white">Narasimman P &mdash; Curriculum Vitae</h3>
+            <p class="text-xs font-mono text-accent">Verified Resume &bull; SCAD CET &bull; B.E. CSE</p>
           </div>
         </div>
         <div class="flex items-center gap-2">
-          <a href="/resume-template.html" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1.5 text-cyan-400 hover:text-white border-cyan-400/40" title="Open full executive resume view in a new tab">
+          <a href="/resume-template.html" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs px-3 py-1.5 flex items-center gap-1.5 text-slate-300 hover:text-white border-[var(--color-border)]" title="Open full executive resume view in a new tab">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -1450,7 +1443,7 @@
             </svg>
             <span>Print / PDF</span>
           </button>
-          <button id="resume-close-btn" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10" aria-label="Close Resume Modal">
+          <button id="resume-close-btn" class="p-2 text-slate-400 hover:text-white rounded-[6px] hover:bg-white/10" aria-label="Close Resume Modal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -1459,40 +1452,40 @@
       </div>
 
       <!-- Printable Resume Body (Clean Executive Human-Crafted 2-Column Template) -->
-      <div id="printable-resume" class="pt-6 pb-2 text-gray-200 font-sans leading-relaxed">
+      <div id="printable-resume" class="pt-6 pb-2 text-slate-200 font-sans leading-relaxed">
         
         <!-- Executive Header -->
-        <div class="border-b border-gray-700/80 pb-5 mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+        <div class="border-b border-[var(--color-border)] pb-5 mb-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
           <div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase font-outfit">NARASIMMAN P</h1>
             <div class="flex items-center gap-3 mt-1.5">
-              <span class="text-cyan-400 font-mono text-sm tracking-wider uppercase font-bold">Software Developer</span>
-              <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span class="text-accent font-mono text-sm tracking-wider uppercase font-bold">Software Developer</span>
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-accent bg-[#07090e] border border-[var(--color-border)] px-2 py-0.5 rounded-[4px]">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
                 B.E. Computer Science
               </span>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-1.5 text-xs font-mono text-gray-300 md:text-right">
-            <a href="tel:+918526824759" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
-              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-1.5 text-xs font-mono text-slate-300 md:text-right">
+            <a href="tel:+918526824759" class="hover:text-accent transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
               <span>+91 8526824759</span>
             </a>
-            <a href="mailto:pnarasimman26@gmail.com" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
-              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:pnarasimman26@gmail.com" class="hover:text-accent transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               <span>pnarasimman26@gmail.com</span>
             </a>
-            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
-              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z"/></svg>
+            <a href="https://linkedin.com/in/narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 10.24V10.63H5.06v8.37h2.8z"/></svg>
               <span>linkedin.com/in/narasimman</span>
             </a>
-            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center md:justify-end gap-1.5">
-              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <a href="https://github.com/Narasimman" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors flex items-center md:justify-end gap-1.5">
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
               <span>github.com/Narasimman</span>
             </a>
-            <span class="flex items-center md:justify-end gap-1.5 text-gray-400">
-              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            <span class="flex items-center md:justify-end gap-1.5 text-slate-400">
+              <svg class="w-3.5 h-3.5 text-accent shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
               <span>Tirunelveli, Tamil Nadu</span>
             </span>
           </div>
@@ -1506,42 +1499,42 @@
             
             <!-- About Me -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 About Me
               </h2>
-              <p class="text-[11.5px] leading-relaxed text-gray-300 text-justify">
+              <p class="text-[11.5px] leading-relaxed text-slate-300 text-justify">
                 Final-year B.E. Computer Science and Engineering student seeking a Software Developer role skills in Python, Java, SQL, and Web technologies. Interested in software development, backend technologies. Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.
               </p>
             </div>
 
             <!-- Education -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Education
               </h2>
-              <div class="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 space-y-1">
+              <div class="p-2.5 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] space-y-1">
                 <div class="font-bold text-white text-xs leading-snug">SCAD College of Engineering &amp; Technology</div>
-                <div class="text-[11px] text-cyan-300">B.E. in Computer Science &amp; Engineering</div>
-                <div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400 pt-1">
+                <div class="text-[11px] text-slate-300">B.E. in Computer Science &amp; Engineering</div>
+                <div class="flex items-center justify-between text-[10.5px] font-mono text-slate-400 pt-1">
                   <span>Sep. 2023 – May 2027</span>
-                  <span class="font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-1.5 py-0.2 rounded">7.3 CGPA</span>
+                  <span class="font-bold text-accent bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">7.3 CGPA</span>
                 </div>
-                <div class="text-[10px] text-gray-500">Tirunelveli, Tamil Nadu</div>
+                <div class="text-[10px] text-slate-500">Tirunelveli, Tamil Nadu</div>
               </div>
             </div>
 
             <!-- Technical Skills -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Technical Skills
               </h2>
               
               <div class="space-y-2.5 text-xs">
                 <div>
-                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Languages</span>
+                  <span class="text-[10.5px] font-mono font-semibold text-slate-400 block mb-1">Languages</span>
                   <div class="flex flex-wrap gap-1">
                     <span class="resume-pill highlight">Python</span>
                     <span class="resume-pill highlight">Java</span>
@@ -1552,7 +1545,7 @@
                 </div>
 
                 <div>
-                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">AI &amp; Automation</span>
+                  <span class="text-[10.5px] font-mono font-semibold text-slate-400 block mb-1">AI &amp; Automation</span>
                   <div class="flex flex-wrap gap-1">
                     <span class="resume-pill highlight">Claude API</span>
                     <span class="resume-pill highlight">MCP Protocol</span>
@@ -1564,7 +1557,7 @@
                 </div>
 
                 <div>
-                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Technologies &amp; Frameworks</span>
+                  <span class="text-[10.5px] font-mono font-semibold text-slate-400 block mb-1">Technologies &amp; Frameworks</span>
                   <div class="flex flex-wrap gap-1">
                     <span class="resume-pill">React Native</span>
                     <span class="resume-pill">Expo</span>
@@ -1576,7 +1569,7 @@
                 </div>
 
                 <div>
-                  <span class="text-[10.5px] font-mono font-semibold text-gray-400 block mb-1">Developer Tools</span>
+                  <span class="text-[10.5px] font-mono font-semibold text-slate-400 block mb-1">Developer Tools</span>
                   <div class="flex flex-wrap gap-1">
                     <span class="resume-pill">VS Code</span>
                     <span class="resume-pill">Eclipse</span>
@@ -1590,12 +1583,12 @@
 
             <!-- Honors & Awards -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Honors &amp; Awards
               </h2>
-              <ul class="text-[11px] text-gray-300 space-y-1">
-                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+              <ul class="text-[11px] text-slate-300 space-y-1">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-accent">
                   <strong class="text-white font-semibold">Outstanding Technical Achiever</strong> &mdash; SCAD College of Engineering and Technology (Spring 2025)
                 </li>
               </ul>
@@ -1603,18 +1596,18 @@
 
             <!-- Certifications -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-2 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Certifications
               </h2>
-              <ul class="text-[11px] text-gray-300 space-y-1.5">
-                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+              <ul class="text-[11px] text-slate-300 space-y-1.5">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-accent">
                   <strong class="text-white">Python Essentials 1</strong> &mdash; Cisco Networking Academy
                 </li>
-                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-accent">
                   <strong class="text-white">Web Development</strong> &mdash; Prodigy Infotech
                 </li>
-                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-cyan-400">
+                <li class="relative pl-3 before:content-['▪'] before:absolute before:left-0 before:text-accent">
                   <strong class="text-white">Python Basics</strong> &mdash; HackerRank Certified
                 </li>
               </ul>
@@ -1627,8 +1620,8 @@
             
             <!-- Experience -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Experience
               </h2>
 
@@ -1638,19 +1631,19 @@
                   <div class="flex flex-wrap justify-between items-baseline gap-2">
                     <div>
                       <span class="font-bold text-white text-xs sm:text-sm">Cognifyz Technologies</span>
-                      <span class="text-cyan-300 text-xs font-medium"> &mdash; Software Development Internship</span>
+                      <span class="text-accent text-xs font-medium"> &mdash; Software Development Internship</span>
                     </div>
-                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">Jan 2026 – Feb 2026</span>
+                    <span class="text-[10.5px] font-mono text-slate-400 bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">Jan 2026 – Feb 2026</span>
                   </div>
-                  <div class="text-[10.5px] text-gray-400">Remote &bull; Nagpur, Maharashtra</div>
-                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                  <div class="text-[10.5px] text-slate-400">Remote &bull; Nagpur, Maharashtra</div>
+                  <ul class="text-[11px] text-slate-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Engineered software solutions in <strong class="text-white">Python and Java</strong>, delivering all assigned tasks on schedule.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Collaborated with mentors to debug issues and optimize code, applying version control and coding best practices.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Automated daily test-result reporting and visualization using Python, improving team visibility.
                     </li>
                   </ul>
@@ -1661,19 +1654,19 @@
                   <div class="flex flex-wrap justify-between items-baseline gap-2">
                     <div>
                       <span class="font-bold text-white text-xs sm:text-sm">InternzLearn</span>
-                      <span class="text-cyan-300 text-xs font-medium"> &mdash; Cyber Security Internship</span>
+                      <span class="text-accent text-xs font-medium"> &mdash; Cyber Security Internship</span>
                     </div>
-                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">March 2025 – April 2025</span>
+                    <span class="text-[10.5px] font-mono text-slate-400 bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">March 2025 – April 2025</span>
                   </div>
-                  <div class="text-[10.5px] text-gray-400">Remote &bull; Bengaluru, Karnataka</div>
-                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                  <div class="text-[10.5px] text-slate-400">Remote &bull; Bengaluru, Karnataka</div>
+                  <ul class="text-[11px] text-slate-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Analyzed network security fundamentals and common cyber threats, strengthening understanding of attack vectors and defense mechanisms.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Conducted vulnerability assessments and applied system protection best practices.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Evaluated web application exposure to cyber risks and applied secure coding principles.
                     </li>
                   </ul>
@@ -1683,8 +1676,8 @@
 
             <!-- Featured Projects -->
             <div>
-              <h2 class="text-xs font-bold font-mono tracking-widest text-cyan-400 uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-gray-700/60">
-                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm"></span>
+              <h2 class="text-xs font-bold font-mono tracking-widest text-accent uppercase flex items-center gap-1.5 mb-3 pb-1 border-b border-[var(--color-border)]">
+                <span class="w-1.5 h-3 bg-accent rounded-sm"></span>
                 Featured Projects
               </h2>
 
@@ -1694,22 +1687,22 @@
                   <div class="flex flex-wrap justify-between items-baseline gap-2">
                     <div>
                       <span class="font-bold text-white text-xs sm:text-sm">SafeHer &mdash; Women Safety Application</span>
-                      <span class="text-[10.5px] text-gray-400 font-mono">(Hackathon)</span>
+                      <span class="text-[10.5px] text-slate-400 font-mono">(Hackathon)</span>
                     </div>
-                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">March 2026</span>
+                    <span class="text-[10.5px] font-mono text-slate-400 bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">March 2026</span>
                   </div>
-                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">React Native &bull; Expo &bull; Supabase &bull; GPS &bull; MySQL &bull; MCP</div>
-                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                  <div class="text-[10.5px] font-mono text-accent font-medium">React Native &bull; Expo &bull; Supabase &bull; GPS &bull; MySQL &bull; MCP</div>
+                  <ul class="text-[11px] text-slate-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Architected a mobile safety app delivering real-time location sharing and instant SOS alerts.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing response time by <span class="resume-metric-tag">3 Seconds</span>.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Secured user authentication and database management with Supabase and MySQL.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Integrated <strong class="text-white">MCP (Model Context Protocol)</strong> to enable contextual smart replies and dynamic tool integrations for safety users.
                     </li>
                   </ul>
@@ -1720,22 +1713,22 @@
                   <div class="flex flex-wrap justify-between items-baseline gap-2">
                     <div>
                       <span class="font-bold text-white text-xs sm:text-sm">ERP Attendance Management System</span>
-                      <span class="text-[10.5px] text-gray-400 font-mono">(College Academic)</span>
+                      <span class="text-[10.5px] text-slate-400 font-mono">(College Academic)</span>
                     </div>
-                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">April 2026</span>
+                    <span class="text-[10.5px] font-mono text-slate-400 bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">April 2026</span>
                   </div>
-                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">React.js &bull; Firebase &bull; PostgreSQL &bull; MCP Architecture</div>
-                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                  <div class="text-[10.5px] font-mono text-accent font-medium">React.js &bull; Firebase &bull; PostgreSQL &bull; MCP Architecture</div>
+                  <ul class="text-[11px] text-slate-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Developed an ERP-based attendance management system to automate student attendance tracking and reduce manual record-keeping.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Implemented role-based access control (RBAC) for Admin, Faculty, and Students.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Built automated percentage calculation and report generation, serving <span class="resume-metric-tag">180+ users</span>.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Leveraged <strong class="text-white">MCP</strong> to securely connect and fetch real-time student records across databases and external automated tools.
                     </li>
                   </ul>
@@ -1747,20 +1740,20 @@
                     <div>
                       <span class="font-bold text-white text-xs sm:text-sm">SecureChat &mdash; Secure Communication Application</span>
                     </div>
-                    <span class="text-[10.5px] font-mono text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">November 2025</span>
+                    <span class="text-[10.5px] font-mono text-slate-400 bg-[#07090e] border border-[var(--color-border)] px-1.5 py-0.5 rounded-[4px]">November 2025</span>
                   </div>
-                  <div class="text-[10.5px] font-mono text-cyan-400/90 font-medium">IndexedDB &bull; AES-256 &bull; React &bull; Tailwind CSS &bull; MCP</div>
-                  <ul class="text-[11px] text-gray-300 space-y-1 mt-1 text-justify">
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                  <div class="text-[10.5px] font-mono text-accent font-medium">IndexedDB &bull; AES-256 &bull; React &bull; Tailwind CSS &bull; MCP</div>
+                  <ul class="text-[11px] text-slate-300 space-y-1 mt-1 text-justify">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Built an end-to-end encrypted real-time messaging platform using <strong class="text-white">AES-256</strong>.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Implemented secure authentication and encrypted message storage using <strong class="text-white">IndexedDB</strong>.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Engineered reliable message handling to protect data privacy across conversations.
                     </li>
-                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-cyan-400 before:font-bold">
+                    <li class="relative pl-3.5 before:content-['•'] before:absolute before:left-0 before:text-accent before:font-bold">
                       Utilized <strong class="text-white">MCP architecture</strong> to seamlessly handle secure communication protocols and manage tool context between users.
                     </li>
                   </ul>

@@ -1,0 +1,71 @@
+/* ==========================================================
+   DESIGN TOKENS - Visual Restyle
+   - Black & White (Monochrome) Default + Accent Switch
+   - Radius: 6px
+   - Spacing: 8, 16, 24, 32, 48, 64 px
+   - Typography: Outfit (Heading 700) + Fira Code (Mono)
+   - Neon Glow: Reduced by ~70% (Subtle shadow only)
+   ========================================================== */
+
+:root {
+  /* Colors: Black & White / Monochrome Theme (Default) */
+  --color-accent: #ffffff;
+  --color-accent-hover: #e4e4e7;
+  --color-accent-text: #09090b;
+  --color-accent-subtle: rgba(255, 255, 255, 0.08);
+  --color-accent-border: rgba(255, 255, 255, 0.25);
+
+  --color-bg: #09090b;
+  --color-surface: #121215;
+  --color-surface-hover: #18181b;
+  --color-surface-card: #121215;
+  
+  --color-border: #27272a;
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-hover: #3f3f46;
+
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-text-subtle: #71717a;
+
+  /* Radius: Strict 6px across cards, badge, tabs, buttons */
+  --radius-base: 6px;
+  --radius-sm: 4px;
+
+  /* Spacing Scale: Strictly 8, 16, 24, 32, 48, 64 px */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Typography */
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+  --heading-weight: 700;
+
+  /* Shadows: 70% reduced, very subtle (no neon glow pulse) */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Optional Accent Theme (switchable via toggle) */
+[data-theme="accent"] {
+  --color-accent: #0ea5e9;
+  --color-accent-hover: #0284c7;
+  --color-accent-text: #ffffff;
+  --color-accent-subtle: rgba(14, 165, 233, 0.12);
+  --color-accent-border: rgba(14, 165, 233, 0.35);
+
+  --color-bg: #07090e;
+  --color-surface: #0e131f;
+  --color-surface-hover: #151c2d;
+  --color-surface-card: #0e131f;
+  --color-border: #1e293b;
+  --color-border-hover: #334155;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
+}

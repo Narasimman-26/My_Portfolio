@@ -811,12 +811,12 @@ class CyberTerminal {
     // Render User Input Line
     const line = document.createElement('div');
     line.className = 'font-mono text-sm';
-    line.innerHTML = `<span class="text-cyan-400 font-bold">narasimman@portfolio:~$</span> <span class="text-white">${escapeHtml(cmdRaw)}</span>`;
+    line.innerHTML = `<span class="text-accent font-bold">narasimman@portfolio:~$</span> <span class="text-white">${escapeHtml(cmdRaw)}</span>`;
     this.output.appendChild(line);
 
     // Render Command Output
     const responseLine = document.createElement('div');
-    responseLine.className = 'text-xs text-gray-300 pl-4 border-l border-cyan-500/30 my-2';
+    responseLine.className = 'text-xs text-slate-300 pl-4 border-l border-[var(--color-border)] my-2';
 
     if (this.commands[cmd]) {
       const result = this.commands[cmd]();
@@ -931,12 +931,12 @@ function initCursor() {
     el.addEventListener('mouseenter', () => {
       glow.style.width = '55px';
       glow.style.height = '55px';
-      glow.style.borderColor = 'rgba(0, 240, 255, 0.9)';
+      glow.style.borderColor = 'var(--color-accent)';
     });
     el.addEventListener('mouseleave', () => {
       glow.style.width = '38px';
       glow.style.height = '38px';
-      glow.style.borderColor = 'rgba(0, 240, 255, 0.6)';
+      glow.style.borderColor = 'var(--color-border-hover)';
     });
   });
 }
@@ -981,9 +981,9 @@ const projectData = {
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ARCHITECTURAL FLOW (WITH MCP PROTOCOL)</div>
-          <div class="text-gray-300">
+        <div class="p-4 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] font-mono text-xs space-y-2">
+          <div class="text-accent font-bold uppercase tracking-wider">// ARCHITECTURAL FLOW (WITH MCP PROTOCOL)</div>
+          <div class="text-slate-300">
             [User / Mobile Device] &rarr; (GPS Native Sensor) &rarr; [Location Telemetry Stream]<br>
             &emsp;&emsp;&darr;<br>
             [MCP Smart Engine] &rarr; Contextual Smart Replies &amp; Dynamic Emergency Safety Tools<br>
@@ -996,7 +996,7 @@ const projectData = {
 
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
-          <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
+          <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
             <li><strong>Real-Time Location Sharing &amp; SOS:</strong> Rapid trigger sending live GPS coordinates directly to predefined emergency contacts.</li>
             <li><strong>Danger-Zone Tracking:</strong> Real-time proximity calculation alerting users near danger zones, cutting response time by 3 seconds.</li>
             <li><strong>Secure Authentication &amp; DB:</strong> Secured user authentication and database management using Supabase and MySQL.</li>
@@ -1014,24 +1014,24 @@ const projectData = {
       <div class="space-y-4">
         <div>
           <h4 class="text-base font-bold text-white mb-1">Overview &amp; Problem Solved</h4>
-          <p class="text-gray-300 text-sm">
+          <p class="text-slate-300 text-sm">
             Developed an ERP-based attendance management system to automate student attendance tracking and eliminate manual paper record-keeping across academic departments, serving 180+ users.
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ACCESS ROLES &amp; MCP PROTOCOL ARCHITECTURE</div>
-          <div class="text-gray-300">
-            &bull; <strong class="text-purple-400">Admin Module:</strong> Semester configuration, faculty assignment, institutional audit reports.<br>
-            &bull; <strong class="text-cyan-400">Faculty Module:</strong> Daily period attendance marking, student status modification, leave approval.<br>
-            &bull; <strong class="text-emerald-400">Student Portal:</strong> Live attendance percentage tracker, shortage alerts, subject analytics.<br>
-            &bull; <strong class="text-cyan-300">MCP Connectivity:</strong> Secure cross-database student records fetching and automated tool execution.
+        <div class="p-4 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] font-mono text-xs space-y-2">
+          <div class="text-accent font-bold uppercase tracking-wider">// ACCESS ROLES &amp; MCP PROTOCOL ARCHITECTURE</div>
+          <div class="text-slate-300">
+            &bull; <strong class="text-white">Admin Module:</strong> Semester configuration, faculty assignment, institutional audit reports.<br>
+            &bull; <strong class="text-white">Faculty Module:</strong> Daily period attendance marking, student status modification, leave approval.<br>
+            &bull; <strong class="text-white">Student Portal:</strong> Live attendance percentage tracker, shortage alerts, subject analytics.<br>
+            &bull; <strong class="text-accent">MCP Connectivity:</strong> Secure cross-database student records fetching and automated tool execution.
           </div>
         </div>
 
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
-          <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
+          <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
             <li><strong>Automated Percentage Calculation:</strong> Automated attendance calculation and report generation serving 180+ active users.</li>
             <li><strong>Role-Based Access Control (RBAC):</strong> Strict permission boundaries for Admin, Faculty, and Students.</li>
             <li><strong>PostgreSQL Relational Schema:</strong> Robust normalization connecting student rosters, class sessions, and faculty assignments.</li>
@@ -1049,14 +1049,14 @@ const projectData = {
       <div class="space-y-4">
         <div>
           <h4 class="text-base font-bold text-white mb-1">Overview &amp; Problem Solved</h4>
-          <p class="text-gray-300 text-sm">
+          <p class="text-slate-300 text-sm">
             Engineered an end-to-end encrypted real-time messaging platform using AES-256 with secure authentication and encrypted message persistence stored locally via IndexedDB.
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// CRYPTOGRAPHIC &amp; MCP PIPELINE</div>
-          <div class="text-gray-300">
+        <div class="p-4 rounded-[6px] bg-[#07090e] border border-[var(--color-border)] font-mono text-xs space-y-2">
+          <div class="text-accent font-bold uppercase tracking-wider">// CRYPTOGRAPHIC &amp; MCP PIPELINE</div>
+          <div class="text-slate-300">
             [React + Tailwind UI] &rarr; Client-side AES-256 encryption &rarr; [Encrypted Payload]<br>
             &emsp;&emsp;&darr;<br>
             [IndexedDB Storage] &rarr; Secure client-side persistent storage with cryptographic hashing<br>
@@ -1069,7 +1069,7 @@ const projectData = {
 
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
-          <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
+          <ul class="list-disc list-inside text-sm text-slate-300 space-y-1.5">
             <li><strong>AES-256 End-to-End Encryption:</strong> Complete cryptographic data security ensuring zero-knowledge message secrecy.</li>
             <li><strong>IndexedDB Encrypted Persistence:</strong> Secure authentication and encrypted message storage directly in IndexedDB.</li>
             <li><strong>Reliable Message Handling:</strong> High-integrity message transmission engineered to protect data privacy across conversations.</li>
@@ -1224,8 +1224,34 @@ function initSoundToggle() {
   btn.addEventListener('click', () => sound.toggle());
 }
 
+// --- Theme Toggle (Black & White / Accent) ---
+function initThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  const saved = localStorage.getItem('np_portfolio_theme') || 'bw';
+  if (saved === 'accent') {
+    document.documentElement.setAttribute('data-theme', 'accent');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const isAccent = document.documentElement.getAttribute('data-theme') === 'accent';
+    if (isAccent) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('np_portfolio_theme', 'bw');
+      if (typeof sound !== 'undefined') sound.playClick();
+    } else {
+      document.documentElement.setAttribute('data-theme', 'accent');
+      localStorage.setItem('np_portfolio_theme', 'accent');
+      if (typeof sound !== 'undefined') sound.playClick();
+    }
+  });
+}
+
 // --- Initialize Everything On DOM Ready ---
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initSoundToggle();
   initBackgroundCanvas();
   new Hero3DScene();
