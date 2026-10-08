@@ -558,9 +558,10 @@ body {
 @media print {
   body {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #1e293b !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   }
-  header, footer, #bg-canvas, #hero, #about, #skills, #experience, #projects, #terminal-section, #certifications, #contact, .cursor-dot, .cursor-glow, .audio-toast {
+  header, footer, #bg-canvas, #hero, #about, #skills, #experience, #projects, #terminal-section, #certifications, #contact, .cursor-dot, .cursor-glow, .audio-toast, .noise-overlay {
     display: none !important;
   }
   #resume-modal {
@@ -570,22 +571,49 @@ body {
     padding: 0 !important;
     display: block !important;
   }
-  .modal-card {
+  #resume-modal .modal-card {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #1e293b !important;
     border: none !important;
     box-shadow: none !important;
     max-width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
+  }
+  #resume-modal .modal-card > div:first-child {
+    display: none !important; /* Hide modal title bar when printing */
   }
   #printable-resume {
-    color: #111827 !important;
+    color: #1e293b !important;
+    padding: 20px 24px !important;
   }
-  #printable-resume h1, #printable-resume strong {
-    color: #000000 !important;
+  #printable-resume h1 {
+    color: #0f172a !important;
+  }
+  #printable-resume p, #printable-resume div, #printable-resume span, #printable-resume li {
+    color: #334155 !important;
+  }
+  #printable-resume strong {
+    color: #0f172a !important;
   }
   #printable-resume a {
-    color: #2563eb !important;
-    text-decoration: underline;
+    color: #0284c7 !important;
+    text-decoration: none !important;
+  }
+  #printable-resume h2 {
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+  #printable-resume .border-gray-700\/80 {
+    border-color: #0f172a !important;
+  }
+  #printable-resume .border-gray-700\/60 {
+    border-color: #e2e8f0 !important;
+  }
+  #printable-resume .text-cyan-400 {
+    color: #0284c7 !important;
+  }
+  #printable-resume .text-cyan-300 {
+    color: #0369a1 !important;
   }
 }

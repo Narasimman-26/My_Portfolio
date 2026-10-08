@@ -651,39 +651,45 @@ class CyberTerminal {
 <div class="space-y-1.5">
   <div class="text-cyan-400 font-bold">[PROFILE SUMMARY]</div>
   <div><span class="text-white font-semibold">Name:</span> Narasimman P</div>
-  <div><span class="text-white font-semibold">Degree:</span> Final-year B.E. Computer Science & Engineering (7.3 CGPA)</div>
+  <div><span class="text-white font-semibold">Role:</span> Software Developer</div>
+  <div><span class="text-white font-semibold">Degree:</span> Final-year B.E. Computer Science &amp; Engineering (7.3 CGPA)</div>
   <div><span class="text-white font-semibold">Institution:</span> SCAD College of Engineering and Technology, Tirunelveli</div>
-  <div><span class="text-white font-semibold">Core Fields:</span> Cybersecurity, Backend Systems, Secure Socket Networking, Web & Mobile Dev</div>
+  <div><span class="text-white font-semibold">Focus Areas:</span> Software Development, Backend Technologies, Secure Systems, AI/Automation</div>
   <div class="text-gray-300 mt-2">Passionate about building practical solutions, learning new technologies, and contributing to real-world software projects.</div>
 </div>
       `,
       skills: () => `
 <div class="space-y-2">
   <div class="text-cyan-400 font-bold">[TECHNICAL ARSENAL]</div>
-  <div><span class="text-yellow-400">Languages:</span> Python, Java, C, HTML5, CSS3, SQL, JavaScript</div>
-  <div><span class="text-yellow-400">Frameworks:</span> React.js, React Native, Expo, Supabase, Firebase</div>
-  <div><span class="text-yellow-400">Databases:</span> PostgreSQL, MySQL, Supabase Real-time DB</div>
-  <div><span class="text-yellow-400">Cybersecurity:</span> Vulnerability Assessment, Network Defense, OWASP Top 10, Secure Coding</div>
-  <div><span class="text-yellow-400">Tools:</span> VS Code, Eclipse, Android Studio, Linux (Ubuntu/Debian), Git/GitHub</div>
+  <div><span class="text-yellow-400">Languages:</span> Python, Java, HTML, CSS, SQL</div>
+  <div><span class="text-yellow-400">Developer Tools:</span> VS Code, Eclipse, Android Studio, Github Copilot, MySQL</div>
+  <div><span class="text-yellow-400">Frameworks/Technologies:</span> React Native, Expo, Firebase, Linux, Git, PostgreSQL</div>
+  <div><span class="text-yellow-400">AI/Automation:</span> Claude API, MCP (Model Context Protocol), Playwright, Selenium, n8n, Prompt Engineering</div>
 </div>
       `,
       projects: () => `
 <div class="space-y-3">
   <div class="text-cyan-400 font-bold">[FEATURED ENGINEERING PROJECTS]</div>
-  <div class="p-2 rounded bg-white/5 border border-white/10">
+  <div class="p-2.5 rounded-lg bg-white/5 border border-white/10">
     <div class="text-pink-400 font-bold">1. SafeHer - Women Safety Application (Hackathon)</div>
-    <div class="text-gray-300 text-xs">Stack: React Native, Expo, Supabase, GPS integration, MySQL</div>
-    <div class="text-gray-400 text-xs mt-1">Instant emergency SOS alerts, danger zone proximity tracking, real-time location sharing.</div>
+    <div class="text-cyan-300 text-xs font-mono">Stack: React Native, Expo, Supabase, GPS integration, MySQL, MCP | March 2026</div>
+    <div class="text-gray-300 text-xs mt-1">&bull; Real-time location sharing and instant SOS alerts.</div>
+    <div class="text-gray-300 text-xs">&bull; Danger-zone tracking &amp; emergency contact management, reducing response time by 3 seconds.</div>
+    <div class="text-gray-300 text-xs">&bull; MCP integration for contextual smart replies and dynamic tool integrations.</div>
   </div>
-  <div class="p-2 rounded bg-white/5 border border-white/10">
-    <div class="text-cyan-400 font-bold">2. ERP Attendance Management System (Academic)</div>
-    <div class="text-gray-300 text-xs">Stack: React.js, Firebase, PostgreSQL</div>
-    <div class="text-gray-400 text-xs mt-1">Role-based access (Admin, Faculty, Student), automated percentage calculation, academic audit reports.</div>
+  <div class="p-2.5 rounded-lg bg-white/5 border border-white/10">
+    <div class="text-cyan-400 font-bold">2. ERP Attendance Management System (College Academic Project)</div>
+    <div class="text-cyan-300 text-xs font-mono">Stack: React.js, Firebase, PostgreSQL, MCP | April 2026</div>
+    <div class="text-gray-300 text-xs mt-1">&bull; Automated student attendance tracking with RBAC (Admin, Faculty, Students).</div>
+    <div class="text-gray-300 text-xs">&bull; Built automated percentage calculation &amp; report generation serving 180+ users.</div>
+    <div class="text-gray-300 text-xs">&bull; Leveraged MCP to securely fetch real-time student records across databases.</div>
   </div>
-  <div class="p-2 rounded bg-white/5 border border-white/10">
+  <div class="p-2.5 rounded-lg bg-white/5 border border-white/10">
     <div class="text-emerald-400 font-bold">3. SecureChat - Secure Communication Application</div>
-    <div class="text-gray-300 text-xs">Stack: Python, SQL, Cryptography, Socket Networking</div>
-    <div class="text-gray-400 text-xs mt-1">End-to-end encrypted messaging, authenticated session security, resilient real-time socket streams.</div>
+    <div class="text-cyan-300 text-xs font-mono">Stack: IndexedDB, AES-256, React, Tailwind CSS, MCP | Nov 2025</div>
+    <div class="text-gray-300 text-xs mt-1">&bull; End-to-end encrypted messaging with AES-256 and client-side IndexedDB storage.</div>
+    <div class="text-gray-300 text-xs">&bull; Engineered reliable message handling protecting data privacy across conversations.</div>
+    <div class="text-gray-300 text-xs">&bull; Utilized MCP architecture for secure communication protocols and tool context.</div>
   </div>
 </div>
       `,
@@ -691,18 +697,18 @@ class CyberTerminal {
 <div class="space-y-3">
   <div class="text-cyan-400 font-bold">[INTERNSHIPS & PROFESSIONAL ROLES]</div>
   <div>
-    <div class="text-white font-semibold">1. Software Development Intern &bull; <span class="text-cyan-400">Cognifyz Technologies</span></div>
-    <div class="text-xs text-gray-400">Jan 2026 – Feb 2026 &bull; Nagpur, Maharashtra</div>
-    <div class="text-xs text-gray-300 mt-1">&bull; Developed software solutions and completed assigned development tasks.</div>
-    <div class="text-xs text-gray-300">&bull; Collaborated with mentors, improved problem-solving and version control best practices.</div>
-    <div class="text-xs text-gray-300">&bull; Built automated daily test result reporting with Python & Java.</div>
+    <div class="text-white font-semibold">1. Software Development Internship &bull; <span class="text-cyan-400">Cognifyz Technologies</span></div>
+    <div class="text-xs text-gray-400">January 2026 – February 2026 &bull; Remote Nagpur, Maharashtra</div>
+    <div class="text-xs text-gray-300 mt-1">&bull; Engineered software solutions in Python and Java on schedule.</div>
+    <div class="text-xs text-gray-300">&bull; Debugged issues, optimized code, applying version control &amp; best practices.</div>
+    <div class="text-xs text-gray-300">&bull; Automated daily test-result reporting and visualization using Python.</div>
   </div>
   <div class="pt-2 border-t border-white/10">
-    <div class="text-white font-semibold">2. Cyber Security Intern &bull; <span class="text-indigo-400">InternzLearn</span></div>
-    <div class="text-xs text-gray-400">March 2025 – April 2025 &bull; Bengaluru, Karnataka</div>
-    <div class="text-xs text-gray-300 mt-1">&bull; Network security fundamentals, port scanning, common threat vectors.</div>
-    <div class="text-xs text-gray-300">&bull; Vulnerability assessment, system protection, and defensive auditing.</div>
-    <div class="text-xs text-gray-300">&bull; Web application security concepts and secure coding principles.</div>
+    <div class="text-white font-semibold">2. Cyber Security Internship &bull; <span class="text-indigo-400">InternzLearn</span></div>
+    <div class="text-xs text-gray-400">March 2025 – April 2025 &bull; Remote Bengaluru, Karnataka</div>
+    <div class="text-xs text-gray-300 mt-1">&bull; Analyzed network security fundamentals, common threats &amp; attack vectors.</div>
+    <div class="text-xs text-gray-300">&bull; Conducted vulnerability assessments and applied system protection best practices.</div>
+    <div class="text-xs text-gray-300">&bull; Evaluated web application exposure to cyber risks and applied secure coding.</div>
   </div>
 </div>
       `,
@@ -720,8 +726,8 @@ class CyberTerminal {
   <div class="text-cyan-400 font-bold">[TRANSMISSION CHANNELS]</div>
   <div>✉️ Email: <a href="mailto:pnarasimman26@gmail.com" class="text-cyan-300 underline">pnarasimman26@gmail.com</a></div>
   <div>📞 Phone: <span class="text-white">+91 8526824759</span></div>
-  <div>💼 LinkedIn: <a href="https://linkedin.com/in/narasimman-p" target="_blank" class="text-cyan-300 underline">linkedin.com/in/narasimman-p</a></div>
-  <div>🐙 GitHub: <a href="https://github.com/Narasimman-26" target="_blank" class="text-cyan-300 underline">github.com/Narasimman-26</a></div>
+  <div>💼 LinkedIn: <a href="https://linkedin.com/in/narasimman" target="_blank" class="text-cyan-300 underline">linkedin.com/narasimman</a></div>
+  <div>🐙 GitHub: <a href="https://github.com/Narasimman" target="_blank" class="text-cyan-300 underline">github.com/Narasimman</a></div>
   <div>📍 Location: <span class="text-gray-300">Tirunelveli, Tamil Nadu, India</span></div>
 </div>
       `,
@@ -964,23 +970,25 @@ function initSkillsFilter() {
 const projectData = {
   safeher: {
     icon: '🛡️',
-    title: 'SafeHer - Women Safety Application',
-    subtitle: 'Hackathon Project | React Native, Expo, Supabase, MySQL, GPS | March 2026',
+    title: 'SafeHer - Women Safety Application (Hackathon)',
+    subtitle: 'React Native, Expo, Supabase, GPS integration, MySQL, MCP | March 2026',
     content: `
       <div class="space-y-4">
         <div>
           <h4 class="text-base font-bold text-white mb-1">Overview &amp; Problem Solved</h4>
           <p class="text-gray-300 text-sm">
-            Developed during a competitive hackathon to address personal emergency vulnerability. SafeHer provides instant one-tap SOS alerts, emergency contact dispatch, danger zone tracking, and live GPS telemetry updates.
+            Architected a mobile safety app delivering real-time location sharing and instant SOS alerts. Integrated emergency contact management, danger-zone tracking, and quick-alert features, reducing emergency response time by 3 seconds.
           </p>
         </div>
 
         <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ARCHITECTURAL FLOW</div>
+          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ARCHITECTURAL FLOW (WITH MCP PROTOCOL)</div>
           <div class="text-gray-300">
             [User / Mobile Device] &rarr; (GPS Native Sensor) &rarr; [Location Telemetry Stream]<br>
             &emsp;&emsp;&darr;<br>
-            [Supabase Real-Time Engine] &rarr; [Instant WebSocket Dispatch] &rarr; [Emergency Contacts / SMS Hub]<br>
+            [MCP Smart Engine] &rarr; Contextual Smart Replies &amp; Dynamic Emergency Safety Tools<br>
+            &emsp;&emsp;&darr;<br>
+            [Supabase Real-Time Engine] &rarr; Instant WebSocket Dispatch (Reduced Response Time by 3s)<br>
             &emsp;&emsp;&darr;<br>
             [MySQL Persistence Store] &rarr; Danger Zone Geofencing &amp; Historic Audit Logs
           </div>
@@ -989,10 +997,10 @@ const projectData = {
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
           <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
-            <li><strong>Instant SOS Emergency Assistance:</strong> Rapid trigger sending live coordinates directly to predefined trusted guardians.</li>
-            <li><strong>Danger Zone Geofencing:</strong> Real-time distance calculation calculating proximity to known flagged danger corridors.</li>
-            <li><strong>Secure Authentication &amp; Data Privacy:</strong> User authorization handled with encrypted session tokens via Supabase Auth.</li>
-            <li><strong>Low-Latency State Synchronization:</strong> Optimized network payload for high reliability during low-connectivity scenarios.</li>
+            <li><strong>Real-Time Location Sharing &amp; SOS:</strong> Rapid trigger sending live GPS coordinates directly to predefined emergency contacts.</li>
+            <li><strong>Danger-Zone Tracking:</strong> Real-time proximity calculation alerting users near danger zones, cutting response time by 3 seconds.</li>
+            <li><strong>Secure Authentication &amp; DB:</strong> Secured user authentication and database management using Supabase and MySQL.</li>
+            <li><strong>MCP Integration:</strong> Integrated Model Context Protocol to enable contextual smart replies and dynamic tool integrations for safety users.</li>
           </ul>
         </div>
       </div>
@@ -1000,33 +1008,34 @@ const projectData = {
   },
   erp: {
     icon: '📊',
-    title: 'ERP Attendance Management System',
-    subtitle: 'College Academic Project | React.js, Firebase, PostgreSQL | April 2026',
+    title: 'ERP Attendance Management System (College Academic Project)',
+    subtitle: 'React.js, Firebase, PostgreSQL, MCP | April 2026',
     content: `
       <div class="space-y-4">
         <div>
           <h4 class="text-base font-bold text-white mb-1">Overview &amp; Problem Solved</h4>
           <p class="text-gray-300 text-sm">
-            An enterprise collegiate attendance platform created to eliminate manual paper registers, prevent attendance discrepancies, and compute real-time eligibility for exams across multiple academic departments.
+            Developed an ERP-based attendance management system to automate student attendance tracking and eliminate manual paper record-keeping across academic departments, serving 180+ users.
           </p>
         </div>
 
         <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ACCESS ROLES ARCHITECTURE</div>
+          <div class="text-cyan-400 font-bold uppercase tracking-wider">// ACCESS ROLES &amp; MCP PROTOCOL ARCHITECTURE</div>
           <div class="text-gray-300">
             &bull; <strong class="text-purple-400">Admin Module:</strong> Semester configuration, faculty assignment, institutional audit reports.<br>
             &bull; <strong class="text-cyan-400">Faculty Module:</strong> Daily period attendance marking, student status modification, leave approval.<br>
-            &bull; <strong class="text-emerald-400">Student Portal:</strong> Live attendance percentage tracker, shortage alerts, subject-wise analytics.
+            &bull; <strong class="text-emerald-400">Student Portal:</strong> Live attendance percentage tracker, shortage alerts, subject analytics.<br>
+            &bull; <strong class="text-cyan-300">MCP Connectivity:</strong> Secure cross-database student records fetching and automated tool execution.
           </div>
         </div>
 
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
           <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
-            <li><strong>Role-Based Access Control (RBAC):</strong> Strict permission boundaries guaranteeing students cannot modify records.</li>
-            <li><strong>Automated Analytics Engine:</strong> Instant calculation of attendance percentages with thresholds alerting students at risk (&lt;75%).</li>
-            <li><strong>Normalized PostgreSQL Schema:</strong> Robust relational tables connecting students, subjects, faculties, and daily logs.</li>
-            <li><strong>Report Generation:</strong> Instant export of attendance summaries for department review and accreditation.</li>
+            <li><strong>Automated Percentage Calculation:</strong> Automated attendance calculation and report generation serving 180+ active users.</li>
+            <li><strong>Role-Based Access Control (RBAC):</strong> Strict permission boundaries for Admin, Faculty, and Students.</li>
+            <li><strong>PostgreSQL Relational Schema:</strong> Robust normalization connecting student rosters, class sessions, and faculty assignments.</li>
+            <li><strong>MCP Integration:</strong> Leveraged Model Context Protocol to securely connect and fetch real-time student records across databases and external automated tools.</li>
           </ul>
         </div>
       </div>
@@ -1034,35 +1043,37 @@ const projectData = {
   },
   securechat: {
     icon: '🔐',
-    title: 'SecureChat - Encrypted Communication Engine',
-    subtitle: 'Cybersecurity Application | Python, SQL, Cryptography, Socket Networking | Nov 2025',
+    title: 'SecureChat - Secure Communication Application',
+    subtitle: 'IndexedDB, AES-256, React, Tailwind CSS, MCP | November 2025',
     content: `
       <div class="space-y-4">
         <div>
           <h4 class="text-base font-bold text-white mb-1">Overview &amp; Problem Solved</h4>
           <p class="text-gray-300 text-sm">
-            Engineered to provide confidential, private real-time peer-to-peer and group messaging with cryptographic security, preventing eavesdropping and man-in-the-middle attacks.
+            Engineered an end-to-end encrypted real-time messaging platform using AES-256 with secure authentication and encrypted message persistence stored locally via IndexedDB.
           </p>
         </div>
 
         <div class="p-4 rounded-xl bg-white/5 border border-white/10 font-mono text-xs space-y-2">
-          <div class="text-cyan-400 font-bold uppercase tracking-wider">// SECURITY &amp; NETWORKING PIPELINE</div>
+          <div class="text-cyan-400 font-bold uppercase tracking-wider">// CRYPTOGRAPHIC &amp; MCP PIPELINE</div>
           <div class="text-gray-300">
-            [Client A] &rarr; Encrypts message payload with session key &rarr; [Socket Stream]<br>
+            [React + Tailwind UI] &rarr; Client-side AES-256 encryption &rarr; [Encrypted Payload]<br>
             &emsp;&emsp;&darr;<br>
-            [Python Async Server] &rarr; Verifies token integrity &amp; routes ciphertext (Zero-Knowledge)<br>
+            [IndexedDB Storage] &rarr; Secure client-side persistent storage with cryptographic hashing<br>
             &emsp;&emsp;&darr;<br>
-            [Client B] &rarr; Receives payload &amp; verifies cryptographic hash &rarr; Decrypted locally
+            [MCP Architecture] &rarr; Seamless secure communication protocols &amp; tool context between users<br>
+            &emsp;&emsp;&darr;<br>
+            [Encrypted Messaging Stream] &rarr; Zero-knowledge delivery preserving end-to-end user privacy
           </div>
         </div>
 
         <div>
           <h4 class="text-base font-bold text-white mb-2">Key Technical Implementations</h4>
           <ul class="list-disc list-inside text-sm text-gray-300 space-y-1.5">
-            <li><strong>Cryptographic Data Privacy:</strong> End-to-end protection ensuring the central server never parses plaintext messages.</li>
-            <li><strong>Hashed Authentication:</strong> Passwords salted and hashed before SQL persistence; prevents credential leaks.</li>
-            <li><strong>Low-Latency Socket Dispatch:</strong> Multithreaded socket handling providing instant delivery with packet verification.</li>
-            <li><strong>Session Expiry &amp; Tamper Protection:</strong> Time-bound authentication tokens mitigating session hijacking.</li>
+            <li><strong>AES-256 End-to-End Encryption:</strong> Complete cryptographic data security ensuring zero-knowledge message secrecy.</li>
+            <li><strong>IndexedDB Encrypted Persistence:</strong> Secure authentication and encrypted message storage directly in IndexedDB.</li>
+            <li><strong>Reliable Message Handling:</strong> High-integrity message transmission engineered to protect data privacy across conversations.</li>
+            <li><strong>MCP Architecture:</strong> Utilized Model Context Protocol architecture to seamlessly handle secure communication protocols and manage tool context between users.</li>
           </ul>
         </div>
       </div>

@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "SecureChat",
+    "slug": "secure-chat",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "securechat",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#080B10"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.securechat.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#080B10"
+      },
+      "package": "com.securechat.app",
+      "versionCode": 1,
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-secure-store",
+        {
+          "faceIDPermission": "Allow SecureChat to access biometric authentication to unlock encryption keys."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow SecureChat to unlock your secure conversations with Biometrics."
+        }
+      ],
+      "expo-screen-capture"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
