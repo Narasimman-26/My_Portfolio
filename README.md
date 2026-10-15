@@ -1,4 +1,4 @@
-# ⚡ Narasimman P — 3D Software Developer Portfolio
+# ⚡ Narasimman P — Software Developer Portfolio
 
 A futuristic, high-performance **3D Portfolio Website** designed for **Narasimman P** (Final-year B.E. Computer Science & Engineering student at **SCAD College of Engineering and Technology**, Tirunelveli). 
 
