@@ -33,28 +33,42 @@ html {
   max-width: 100vw;
 }
 
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* native instant responsive scrolling on touch screens */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 body {
   overflow-x: hidden;
   max-width: 100vw;
   background-color: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
-  background-image: 
-    radial-gradient(circle at 85% 20%, rgba(255, 107, 44, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 15% 60%, rgba(255, 107, 44, 0.025) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-  background-attachment: fixed;
+  position: relative;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-[data-theme="light"] body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+/* GPU-accelerated fixed background without body repaint or feTurbulence lag */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(circle at 85% 20%, rgba(255, 107, 44, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 15% 60%, rgba(255, 107, 44, 0.025) 0%, transparent 50%);
+  transform: translateZ(0);
+}
+
+[data-theme="light"] body::before {
   background-image: 
     radial-gradient(circle at 85% 20%, rgba(255, 107, 44, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 15% 60%, rgba(255, 107, 44, 0.03) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-  background-attachment: fixed;
+    radial-gradient(circle at 15% 60%, rgba(255, 107, 44, 0.03) 0%, transparent 50%);
 }
 
 /* Consistent heading weights */
@@ -63,26 +77,30 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--heading-weight);
 }
 
-/* Quiet background canvas for particles and grid (Grayscale for B&W) */
+/* Background canvas for particles (Direct WebGL hardware blit - no slow CSS filter) */
 #bg-canvas {
-  opacity: 0.18;
-  filter: grayscale(100%) brightness(0.55);
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.22;
   pointer-events: none;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  z-index: 0;
+  transform: translateZ(0);
 }
 
 [data-theme="accent"] #bg-canvas {
-  opacity: 0.22;
-  filter: brightness(0.6);
+  opacity: 0.3;
 }
 
 #hero-3d-canvas {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-[data-theme="accent"] #hero-3d-canvas {
-  filter: none;
+/* Performance class for offscreen sections */
+.perf-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 /* Helper color utilities */
@@ -116,9 +134,9 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease-out;
+  transform: translate3d(-50%, -50%, 0);
   box-shadow: 0 0 4px var(--cyan-primary);
+  will-change: transform;
 }
 
 .cursor-glow {
@@ -131,12 +149,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s ease-out, height 0.25s ease-out, transform 0.12s ease-out;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.25s ease-out, height 0.25s ease-out;
   background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+  will-change: transform;
 }
 
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 768px) {
   .cursor-dot, .cursor-glow {
     display: none !important;
   }

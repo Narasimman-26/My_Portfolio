@@ -110,30 +110,42 @@ function initBackgroundCanvas() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
+  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  const renderer = new THREE.WebGLRenderer({ 
+    canvas, 
+    alpha: true, 
+    antialias: false, 
+    powerPreference: 'low-power',
+    stencil: false,
+    depth: false
+  });
+  
+  const dpr = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.25);
+  renderer.setPixelRatio(dpr);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 400;
 
-  // Starfield particles
-  const particleCount = 700;
+  // Starfield particles - tailored for mobile vs desktop
+  const particleCount = isMobile ? 180 : 420;
   const geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
 
-  const color1 = new THREE.Color(0x00f0ff);
-  const color2 = new THREE.Color(0x6366f1);
-  const color3 = new THREE.Color(0x10b981);
+  // Subtle colors without needing heavy CSS grayscale filter
+  const color1 = new THREE.Color(0xff6b2c); // Accent
+  const color2 = new THREE.Color(0x8e8e99); // Soft slate
+  const color3 = new THREE.Color(0x52525e); // Darker star
 
   for (let i = 0; i < particleCount; i++) {
     positions[i * 3] = (Math.random() - 0.5) * 1200;
     positions[i * 3 + 1] = (Math.random() - 0.5) * 1200;
     positions[i * 3 + 2] = (Math.random() - 0.5) * 1000;
 
-    const chosenColor = Math.random() > 0.6 ? color1 : (Math.random() > 0.5 ? color2 : color3);
+    const chosenColor = Math.random() > 0.75 ? color1 : (Math.random() > 0.4 ? color2 : color3);
     colors[i * 3] = chosenColor.r;
     colors[i * 3 + 1] = chosenColor.g;
     colors[i * 3 + 2] = chosenColor.b;
@@ -143,64 +155,94 @@ function initBackgroundCanvas() {
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
   const material = new THREE.PointsMaterial({
-    size: 2.2,
+    size: isMobile ? 1.8 : 2.2,
     vertexColors: true,
     transparent: true,
-    opacity: 0.7,
+    opacity: 0.65,
     blending: THREE.AdditiveBlending
   });
 
   const starField = new THREE.Points(geometry, material);
   scene.add(starField);
 
-  // Subtle Wireframe Cyber Plane at base
-  const gridGeo = new THREE.PlaneGeometry(1600, 1600, 32, 32);
-  const gridMat = new THREE.MeshBasicMaterial({
-    color: 0x00f0ff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.05
-  });
-  const gridMesh = new THREE.Mesh(gridGeo, gridMat);
-  gridMesh.rotation.x = -Math.PI / 2;
-  gridMesh.position.y = -220;
-  scene.add(gridMesh);
+  // Subtle Wireframe Cyber Plane at base (desktop only for max mobile performance)
+  let gridMesh = null;
+  if (!isMobile) {
+    const gridGeo = new THREE.PlaneGeometry(1600, 1600, 16, 16);
+    const gridMat = new THREE.MeshBasicMaterial({
+      color: 0x333340,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.04
+    });
+    gridMesh = new THREE.Mesh(gridGeo, gridMat);
+    gridMesh.rotation.x = -Math.PI / 2;
+    gridMesh.position.y = -220;
+    scene.add(gridMesh);
+  }
 
-  // Mouse & Scroll Parallax
+  // Mouse Parallax (desktop only)
   let mouseX = 0;
   let mouseY = 0;
   let targetX = 0;
   let targetY = 0;
 
-  window.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX - window.innerWidth / 2) * 0.08;
-    mouseY = (e.clientY - window.innerHeight / 2) * 0.08;
+  if (!isMobile) {
+    window.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - window.innerWidth / 2) * 0.05;
+      mouseY = (e.clientY - window.innerHeight / 2) * 0.05;
+    }, { passive: true });
+  }
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }, 150);
   }, { passive: true });
 
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  // Intelligent scroll pause: skip WebGL frames during fast touch scroll on mobile
+  let isScrolling = false;
+  let scrollStopTimer = null;
+  window.addEventListener('scroll', () => {
+    isScrolling = true;
+    clearTimeout(scrollStopTimer);
+    scrollStopTimer = setTimeout(() => {
+      isScrolling = false;
+    }, 80);
+  }, { passive: true });
 
-  function animate() {
+  let lastFrameTime = 0;
+  const targetFrameInterval = isMobile ? (1000 / 30) : (1000 / 60);
+
+  function animate(now) {
     requestAnimationFrame(animate);
 
-    targetX += (mouseX - targetX) * 0.05;
-    targetY += (mouseY - targetY) * 0.05;
+    if (document.hidden) return;
+    if (isScrolling && isMobile) return;
 
-    starField.rotation.y += 0.0006;
-    starField.rotation.x += 0.0003;
-    gridMesh.position.z = (gridMesh.position.z + 0.4) % 50;
+    if (now - lastFrameTime < targetFrameInterval) return;
+    lastFrameTime = now;
 
-    camera.position.x = targetX * 0.5;
-    camera.position.y = -targetY * 0.5;
-    camera.lookAt(0, 0, 0);
+    if (!isMobile) {
+      targetX += (mouseX - targetX) * 0.05;
+      targetY += (mouseY - targetY) * 0.05;
+      camera.position.x = targetX * 0.5;
+      camera.position.y = -targetY * 0.5;
+      camera.lookAt(0, 0, 0);
+      if (gridMesh) gridMesh.position.z = (gridMesh.position.z + 0.3) % 100;
+    }
+
+    starField.rotation.y += 0.0005;
+    starField.rotation.x += 0.0002;
 
     renderer.render(scene, camera);
   }
 
-  animate();
+  requestAnimationFrame(animate);
 }
 
 // --- Interactive 3D Hero Canvas ---
@@ -908,22 +950,30 @@ function initCursor() {
   const glow = document.getElementById('cursor-glow');
   if (!dot || !glow) return;
 
+  // Immediately exit on touch/mobile devices to avoid unnecessary 60fps RAF loop
+  const isTouch = window.matchMedia('(pointer: coarse)').matches || ('ontouchstart' in window) || (window.innerWidth < 768);
+  if (isTouch) {
+    dot.style.display = 'none';
+    glow.style.display = 'none';
+    return;
+  }
+
   let mouse = { x: -100, y: -100 };
   let glowPos = { x: -100, y: -100 };
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
-    dot.style.transform = `translate(${mouse.x}px, ${mouse.y}px)`;
-  });
+    dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
+  }, { passive: true });
 
   function renderCursor() {
     glowPos.x += (mouse.x - glowPos.x) * 0.18;
     glowPos.y += (mouse.y - glowPos.y) * 0.18;
-    glow.style.transform = `translate(${glowPos.x}px, ${glowPos.y}px)`;
+    glow.style.transform = `translate3d(${glowPos.x}px, ${glowPos.y}px, 0)`;
     requestAnimationFrame(renderCursor);
   }
-  renderCursor();
+  requestAnimationFrame(renderCursor);
 
   // Enlarge cursor on interactive elements
   const interactiveTargets = document.querySelectorAll('a, button, input, textarea, .skill-card, .project-card');
@@ -932,12 +982,12 @@ function initCursor() {
       glow.style.width = '55px';
       glow.style.height = '55px';
       glow.style.borderColor = 'var(--color-accent)';
-    });
+    }, { passive: true });
     el.addEventListener('mouseleave', () => {
       glow.style.width = '38px';
       glow.style.height = '38px';
       glow.style.borderColor = 'var(--color-border-hover)';
-    });
+    }, { passive: true });
   });
 }
 
