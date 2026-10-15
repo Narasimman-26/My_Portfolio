@@ -1,0 +1,82 @@
+/* ==========================================================
+   DESIGN TOKENS - Electric Orange (#ff6b2c) + Near-black (#0d0d12)
+   - Dark Theme (Default): #0d0d12, off-white #f4f4f6, accent #ff6b2c
+   - Light/White Theme: #fafafa, near-black #0d0d12, accent #ff6b2c
+   - Headings: Space Grotesk
+   - Body: Inter
+   - No purple-blue gradients, no glassmorphism, no stock illustrations
+   ========================================================== */
+
+:root {
+  /* Colors: Dark Theme (Default) */
+  --color-accent: #ff6b2c;
+  --color-accent-hover: #e85517;
+  --color-accent-text: #ffffff;
+  --color-accent-subtle: rgba(255, 107, 44, 0.12);
+  --color-accent-border: rgba(255, 107, 44, 0.35);
+
+  --color-bg: #0d0d12;
+  --color-surface: #14141c;
+  --color-surface-hover: #1c1c27;
+  --color-surface-card: #14141c;
+  --color-surface-subtle: #07090e;
+  
+  --color-border: #232330;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-hover: #37374a;
+
+  --color-text: #f4f4f6;
+  --color-text-muted: #9e9ea8;
+  --color-text-subtle: #71717a;
+
+  /* Radius: Clean modern 10px / 12px */
+  --radius-base: 10px;
+  --radius-sm: 6px;
+  --radius-pill: 9999px;
+
+  /* Spacing Scale */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --heading-weight: 700;
+
+  /* Subtle Shadows (No neon glows) */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.55);
+}
+
+/* White/Light Theme (toggleable via theme button) */
+[data-theme="light"] {
+  --color-accent: #ff6b2c;
+  --color-accent-hover: #e85517;
+  --color-accent-text: #ffffff;
+  --color-accent-subtle: rgba(255, 107, 44, 0.1);
+  --color-accent-border: rgba(255, 107, 44, 0.3);
+
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f4f4f6;
+  --color-surface-card: #ffffff;
+  --color-surface-subtle: #f1f5f9;
+  
+  --color-border: #e4e4e7;
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+  --color-border-hover: #d4d4d8;
+
+  --color-text: #0d0d12;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,363 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // This security rules file assumes the following data structures:
+    //
+    // Collection: users
+    // Document ID: {userId} (Firebase Auth UID)
+    // Fields:
+    //   - uid: string (required, immutable, matches userId and auth.uid)
+    //   - email: string (required, valid email address, 3-254 chars)
+    //   - username: string (required, 3-30 chars)
+    //   - displayName: string (required, 1-50 chars)
+    //   - publicKey: string (required, X25519 public key in Base64)
+    //   - avatarUrl: string (optional, URL or empty string, max 500 chars)
+    //   - createdAt: number (required, immutable, positive timestamp)
+    //   - lastSeen: number (required, positive timestamp)
+    //   - isOnline: bool (required)
+    // Access:
+    //   - Read: any authenticated user (needed for user discovery and public key exchange)
+    //   - Create: authenticated user where request.auth.uid == userId
+    //   - Update: authenticated user where request.auth.uid == userId, uid and createdAt immutable
+    //
+    // Collection: conversations
+    // Document ID: {conversationId}
+    // Fields:
+    //   - id: string (required, matches conversationId, immutable)
+    //   - participantIds: list of strings (required, size == 2, contains caller, immutable)
+    //   - createdAt: number (required, immutable, positive timestamp)
+    //   - updatedAt: number (required, positive timestamp)
+    //   - disappearingTtl: number (required, allowed enum: 0, 30, 300, 3600, 86400)
+    //   - lastMessageMeta: map (optional, contains senderId, createdAt, status)
+    // Access:
+    //   - Read: conversation participants only
+    //   - Create: caller must be in participantIds list, valid schema
+    //   - Update: caller must be in participantIds list, id/participantIds/createdAt immutable
+    //
+    // Subcollection: conversations/{conversationId}/messages/{messageId}
+    // Document ID: {messageId}
+    // Fields:
+    //   - messageId: string (required, matches messageId, immutable)
+    //   - conversationId: string (required, matches conversationId, immutable)
+    //   - senderId: string (required, immutable, matches request.auth.uid)
+    //   - ciphertext: string (required, base64 AES-256-GCM ciphertext, 1-10000 chars)
+    //   - iv: string (required, base64 12-byte IV, 12-64 chars)
+    //   - tag: string (required, base64 16-byte auth tag, 16-64 chars)
+    //   - createdAt: number (required, immutable, positive timestamp)
+    //   - expiresAt: number or null (optional, positive timestamp if numeric)
+    //   - status: string (required, allowed enum: 'sent' | 'delivered' | 'read')
+    // Security Restrictions:
+    //   - Plaintext fields (text, content, body, message, plaintext) are STRICTLY FORBIDDEN.
+    //   - Only 'status' field can be updated by conversation participants.
+    // Access:
+    //   - Read: conversation participants only (verified via parent conversation document)
+    //   - Create: conversation participants only, senderId matches auth.uid
+    //   - Update: conversation participants only, diff affected keys strictly limited to 'status'
+    //
+    // Collection: blocks
+    // Document ID: {blockId} (typically ${blockerId}_${blockedId})
+    // Fields:
+    //   - blockerId: string (required, immutable, matches request.auth.uid)
+    //   - blockedId: string (required, immutable, target user UID)
+    //   - createdAt: number (required, positive timestamp)
+    // Access:
+    //   - Read/List: blocker only (request.auth.uid == resource.data.blockerId)
+    //   - Create: blocker only (request.auth.uid == request.resource.data.blockerId)
+    //   - Delete: blocker only (request.auth.uid == resource.data.blockerId)
+    //   - Update: disabled (block records are immutable)
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Default Deny
+    // ===============================================================
+    // Deny all reads and writes by default at the root to prevent any accidental exposure.
+    match /{document=**} {
+      allow read, write: false;
+    }
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    // Check if the request is from an authenticated user
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if caller's UID matches the specified userId
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Check if request data has all required fields
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    // Check if request data has ONLY allowed fields (strictly prevents schema pollution)
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    // Ensure immutable fields are not modified on update
+    function areImmutableFieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    // Validate email format
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    // Validate URL format (http or https)
+    function isValidUrl(url) {
+      return url is string &&
+        (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    // Validate optional avatarUrl: if present and non-null, must be string <= 500 chars, empty or valid URL
+    function isValidOptionalAvatarUrl(data) {
+      return !('avatarUrl' in data) ||
+             data.avatarUrl == null ||
+             (data.avatarUrl is string &&
+              data.avatarUrl.size() <= 500 &&
+              (data.avatarUrl == '' || isValidUrl(data.avatarUrl)));
+    }
+
+    // Enforce that NO plaintext fields exist in message data
+    function hasNoPlaintextFields(data) {
+      return !('text' in data) &&
+             !('content' in data) &&
+             !('body' in data) &&
+             !('message' in data) &&
+             !('plaintext' in data);
+    }
+
+    // Check if caller is a participant in the parent conversation
+    function isConversationParticipant(convId) {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/conversations/$(convId)) &&
+             request.auth.uid in get(/databases/$(database)/documents/conversations/$(convId)).data.participantIds;
+    }
+
+    // ===============================================================
+    // Domain Validators (Validator Function Pattern)
+    // ===============================================================
+
+    // Validates the UserProfile document structure and constraints
+    function isValidUser(data, userId) {
+      return hasOnlyAllowedFields(['uid', 'email', 'username', 'displayName', 'publicKey', 'avatarUrl', 'createdAt', 'lastSeen', 'isOnline']) &&
+             hasRequiredFields(['uid', 'email', 'username', 'displayName', 'publicKey', 'createdAt', 'lastSeen', 'isOnline']) &&
+             data.uid is string &&
+             data.uid == userId &&
+             data.uid == request.auth.uid &&
+             data.uid.size() > 0 &&
+             data.uid.size() <= 128 &&
+             data.email is string &&
+             data.email.size() >= 3 &&
+             data.email.size() <= 254 &&
+             isValidEmail(data.email) &&
+             data.username is string &&
+             data.username.size() >= 3 &&
+             data.username.size() <= 30 &&
+             data.displayName is string &&
+             data.displayName.size() >= 1 &&
+             data.displayName.size() <= 50 &&
+             data.publicKey is string &&
+             data.publicKey.size() <= 128 &&
+             (data.publicKey.size() >= 20 || data.publicKey.size() == 0) &&
+             isValidOptionalAvatarUrl(data) &&
+             data.createdAt is number &&
+             data.createdAt > 0 &&
+             data.lastSeen is number &&
+             data.lastSeen > 0 &&
+             data.isOnline is bool;
+    }
+
+    // Validates optional lastMessageMeta map inside conversation
+    function isValidLastMessageMeta(data) {
+      return !('lastMessageMeta' in data) ||
+             data.lastMessageMeta == null ||
+             (data.lastMessageMeta is map &&
+              data.lastMessageMeta.keys().hasOnly(['senderId', 'createdAt', 'status']) &&
+              data.lastMessageMeta.keys().hasAll(['senderId', 'createdAt', 'status']) &&
+              data.lastMessageMeta.senderId is string &&
+              data.lastMessageMeta.senderId in data.participantIds &&
+              data.lastMessageMeta.senderId.size() > 0 &&
+              data.lastMessageMeta.senderId.size() <= 128 &&
+              data.lastMessageMeta.createdAt is number &&
+              data.lastMessageMeta.createdAt > 0 &&
+              data.lastMessageMeta.status is string &&
+              data.lastMessageMeta.status in ['sent', 'delivered', 'read']);
+    }
+
+    // Validates Conversation document structure and constraints
+    function isValidConversation(data, convId) {
+      return hasOnlyAllowedFields(['id', 'participantIds', 'createdAt', 'updatedAt', 'disappearingTtl', 'lastMessageMeta']) &&
+             hasRequiredFields(['id', 'participantIds', 'createdAt', 'updatedAt', 'disappearingTtl']) &&
+             data.id is string &&
+             data.id == convId &&
+             data.id.size() > 0 &&
+             data.id.size() <= 128 &&
+             data.participantIds is list &&
+             data.participantIds.size() == 2 &&
+             data.participantIds[0] is string &&
+             data.participantIds[1] is string &&
+             data.participantIds[0].size() > 0 &&
+             data.participantIds[0].size() <= 128 &&
+             data.participantIds[1].size() > 0 &&
+             data.participantIds[1].size() <= 128 &&
+             data.participantIds[0] != data.participantIds[1] &&
+             (request.auth.uid in data.participantIds) &&
+             data.createdAt is number &&
+             data.createdAt > 0 &&
+             data.updatedAt is number &&
+             data.updatedAt > 0 &&
+             data.disappearingTtl is number &&
+             data.disappearingTtl in [0, 30, 300, 3600, 86400] &&
+             isValidLastMessageMeta(data);
+    }
+
+    // Validates Message subcollection document structure and constraints
+    function isValidMessage(data, convId, msgId) {
+      return hasOnlyAllowedFields(['messageId', 'conversationId', 'senderId', 'ciphertext', 'iv', 'tag', 'createdAt', 'expiresAt', 'status']) &&
+             hasRequiredFields(['messageId', 'conversationId', 'senderId', 'ciphertext', 'iv', 'tag', 'createdAt', 'status']) &&
+             hasNoPlaintextFields(data) &&
+             data.messageId is string &&
+             data.messageId == msgId &&
+             data.messageId.size() > 0 &&
+             data.messageId.size() <= 128 &&
+             data.conversationId is string &&
+             data.conversationId == convId &&
+             data.conversationId.size() > 0 &&
+             data.conversationId.size() <= 128 &&
+             data.senderId is string &&
+             data.senderId.size() > 0 &&
+             data.senderId.size() <= 128 &&
+             data.ciphertext is string &&
+             data.ciphertext.size() >= 1 &&
+             data.ciphertext.size() <= 10000 &&
+             data.iv is string &&
+             data.iv.size() >= 12 &&
+             data.iv.size() <= 64 &&
+             data.tag is string &&
+             data.tag.size() >= 16 &&
+             data.tag.size() <= 64 &&
+             data.createdAt is number &&
+             data.createdAt > 0 &&
+             (!('expiresAt' in data) || data.expiresAt == null || (data.expiresAt is number && data.expiresAt > 0)) &&
+             data.status is string &&
+             data.status in ['sent', 'delivered', 'read'];
+    }
+
+    // Validates Block document structure and constraints
+    function isValidBlock(data) {
+      return hasOnlyAllowedFields(['blockerId', 'blockedId', 'createdAt']) &&
+             hasRequiredFields(['blockerId', 'blockedId', 'createdAt']) &&
+             data.blockerId is string &&
+             data.blockerId == request.auth.uid &&
+             data.blockerId.size() > 0 &&
+             data.blockerId.size() <= 128 &&
+             data.blockedId is string &&
+             data.blockedId.size() > 0 &&
+             data.blockedId.size() <= 128 &&
+             data.blockerId != data.blockedId &&
+             data.createdAt is number &&
+             data.createdAt > 0;
+    }
+
+    // ===============================================================
+    // Collection: users
+    // ===============================================================
+    match /users/{userId} {
+      // Authenticated users can read profiles and public keys for user discovery and key exchange
+      allow read: if isAuthenticated();
+
+      // Users can only create their own profile document with valid schema
+      allow create: if isOwner(userId) &&
+                       isValidUser(request.resource.data, userId);
+
+      // Users can only update their own profile document; uid and createdAt are strictly immutable
+      allow update: if isOwner(userId) &&
+                       isValidUser(request.resource.data, userId) &&
+                       areImmutableFieldsUnchanged(['uid', 'createdAt']);
+
+      // Profile deletion is disabled to maintain message integrity and user references
+      allow delete: if false;
+    }
+
+    // ===============================================================
+    // Collection: conversations
+    // ===============================================================
+    match /conversations/{conversationId} {
+      // Only conversation participants can read conversation metadata
+      allow read: if isAuthenticated() &&
+                     request.auth.uid in resource.data.participantIds;
+
+      // Only conversation participants can create a new conversation; caller must be in participantIds
+      allow create: if isAuthenticated() &&
+                       request.auth.uid in request.resource.data.participantIds &&
+                       isValidConversation(request.resource.data, conversationId);
+
+      // Only conversation participants can update conversation; id, participantIds, and createdAt are immutable
+      allow update: if isAuthenticated() &&
+                       request.auth.uid in resource.data.participantIds &&
+                       isValidConversation(request.resource.data, conversationId) &&
+                       areImmutableFieldsUnchanged(['id', 'participantIds', 'createdAt']);
+
+      // Deletion of conversations is disabled to preserve audit history and integrity
+      allow delete: if false;
+
+      // =============================================================
+      // Subcollection: conversations/{conversationId}/messages/{messageId}
+      // =============================================================
+      match /messages/{messageId} {
+        // Only conversation participants can read encrypted messages
+        allow read: if isConversationParticipant(conversationId);
+
+        // Conversation participants can create encrypted messages; senderId must match auth.uid; no plaintext allowed
+        allow create: if isConversationParticipant(conversationId) &&
+                         request.resource.data.senderId == request.auth.uid &&
+                         isValidMessage(request.resource.data, conversationId, messageId);
+
+        // Only delivery/read status can be updated by participants; all ciphertext, IV, tag, and IDs are strictly immutable
+        allow update: if isConversationParticipant(conversationId) &&
+                         isValidMessage(request.resource.data, conversationId, messageId) &&
+                         request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status']) &&
+                         areImmutableFieldsUnchanged(['messageId', 'conversationId', 'senderId', 'ciphertext', 'iv', 'tag', 'createdAt', 'expiresAt']);
+
+        // Messages cannot be deleted directly by clients; automated TTL cleanup handled via Admin SDK
+        allow delete: if false;
+      }
+    }
+
+    // ===============================================================
+    // Collection: blocks
+    // ===============================================================
+    match /blocks/{blockId} {
+      // Users can only read block records where they are the blocker
+      allow read: if isAuthenticated() &&
+                     request.auth.uid == resource.data.blockerId;
+
+      // Users can only create block records where they are the blocker
+      allow create: if isAuthenticated() &&
+                       request.auth.uid == request.resource.data.blockerId &&
+                       isValidBlock(request.resource.data);
+
+      // Block records are immutable once created (users unblock by deleting the document)
+      allow update: if false;
+
+      // Users can only delete (unblock) records where they are the blocker
+      allow delete: if isAuthenticated() &&
+                       request.auth.uid == resource.data.blockerId;
+    }
+  }
+}

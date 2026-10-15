@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" width="400" height="150">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#07090e"/>
+      <stop offset="100%" stop-color="#030407"/>
+    </linearGradient>
+
+    <!-- Neon Radial Glow -->
+    <radialGradient id="glow" cx="80%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FCC624" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#64748B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Ambient Left Glow -->
+    <radialGradient id="leftGlow" cx="20%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="400" height="150" fill="url(#bg)"/>
+  <rect width="400" height="150" fill="url(#grid)"/>
+  <rect width="400" height="150" fill="url(#glow)"/>
+  <rect width="400" height="150" fill="url(#leftGlow)"/>
+
+  <!-- Top Accent Highlight Line -->
+  <line x1="0" y1="1" x2="400" y2="1" stroke="#FCC624" stroke-width="2" opacity="0.4"/>
+
+  <!-- Background Decorative Shapes / Code -->
+  
+      <!-- Terminal Console Box -->
+      <rect x="235" y="32" width="110" height="82" rx="6" fill="#020617" stroke="#FCC624" stroke-width="1.5" opacity="0.7"/>
+      <circle cx="248" cy="44" r="3" fill="#EF4444"/>
+      <circle cx="258" cy="44" r="3" fill="#F59E0B"/>
+      <circle cx="268" cy="44" r="3" fill="#10B981"/>
+      <text x="246" y="70" font-family="monospace" font-size="12" fill="#FCC624">bash$ cd ~</text>
+      <text x="246" y="90" font-family="monospace" font-size="12" fill="#38BDF8">sysctl -p</text>
+      <text x="32" y="105" font-family="monospace" font-size="20" font-weight="bold" fill="#FBBF24" opacity="0.9">root@linux:~#</text>
+    
+
+  <!-- Tech Dots / Matrix Accents -->
+  <circle cx="375" cy="20" r="1.5" fill="#ffffff" opacity="0.3"/>
+  <circle cx="385" cy="30" r="1.5" fill="#ffffff" opacity="0.2"/>
+  <circle cx="365" cy="35" r="1" fill="#ffffff" opacity="0.4"/>
+  <circle cx="20" cy="25" r="2" fill="#FCC624" opacity="0.6"/>
+  <circle cx="28" cy="25" r="2" fill="#64748B" opacity="0.6"/>
+  <circle cx="36" cy="25" r="2" fill="#64748B" opacity="0.4"/>
+</svg>
